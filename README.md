@@ -18,3 +18,11 @@ Estimated full scopre :
 
 Finished actual scope :
 - .............
+
+## External Assets 
+
+All assets is free item in Unity Asset Store, please download from package manager.  
+
+Blink´s RPG Adventure  
+Path in project : Assets/Pinneaple Dev  
+Download url : https://assetstore.unity.com/packages/2d/characters/blink-s-rpg-adventure-155178#content  
