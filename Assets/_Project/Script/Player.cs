@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D playerRB;
+    Animator playerAnimator;
 
     [SerializeField]
     float walkSpeed;
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     {
         playerRB =  GetComponent<Rigidbody2D>();
         playerRB.gravityScale = 0;
+
+        playerAnimator = GetComponent<Animator>();
         
     }
 
@@ -34,8 +37,19 @@ public class Player : MonoBehaviour
         float x = moveInput.x;
         float y = moveInput.y;
 
-        Debug.Log("X : " + x);
-        Debug.Log("Y : " + y);
+        if (y > 0)
+        {
+            playerAnimator.SetBool("isWalkingBack", true);
+        }
+        else if (y < 0)
+        {
+            playerAnimator.SetBool("isWalkingFront", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalkingFront", false);
+            playerAnimator.SetBool("isWalkingBack", false);
+        }
     }
 
 }
