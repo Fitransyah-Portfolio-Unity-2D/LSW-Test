@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Land
+    uniqueID: 1698742227
+    locked: 0
+  - name: Road
+    uniqueID: 124442463
+    locked: 0
+  - name: Environment
+    uniqueID: 3707793999
+    locked: 0
