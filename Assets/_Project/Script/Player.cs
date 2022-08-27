@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     Vector2 moveInput;
+    Vector2 lastFacingDirection;
     Rigidbody2D playerRB;
     Animator playerAnimator;
     SpriteRenderer playerSprite;
@@ -26,6 +27,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         Walk();
+
+        if (playerRB.velocity.x == 0 && playerRB.velocity.y == 0)
+        {
+            IdleAnimation();
+        }
     }
 
     void OnMove(InputValue value)
@@ -40,52 +46,53 @@ public class Player : MonoBehaviour
         float x = moveInput.x;
         float y = moveInput.y;
 
-        Vector2 lastFacingDirection = new Vector2();
+        if (playerRB.velocity == Vector2.zero) return;
+        WalkAnimation(playerRB.velocity);
+    }
+    void WalkAnimation(Vector2 direction)
+    {
+        Vector2 up = new Vector2(0, 2f);
+        Vector2 right = new Vector2(2f, 0);
 
-        if (y > 0)
+        switch (direction)
         {
+            case Vector2 i when i.Equals(up):
+                playerAnimator.SetBool("isWalkingBack", true);
+                lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
+                break;
 
-            playerAnimator.SetBool("isWalkingBack", true);
+                case Vector2 i when i.Equals(-up):
+                playerAnimator.SetBool("isWalkingFront", true);
+                lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
+                break;
 
-            lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
+            case Vector2 i when i.Equals(right):
+                lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
+                playerAnimator.SetBool("isWalkingSide", true);
+                break;
+
+            case Vector2 i when i.Equals(-right):
+                lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
+                playerAnimator.SetBool("isWalkingSide", true);
+               
+
+                // flipping the sprite X
+                if (playerRB.velocity.x > 0)
+                {
+                    return;
+                }
+                playerSprite.flipX = true;
+                break;
         }
-        else if (y < 0)
-        {
-
-            playerAnimator.SetBool("isWalkingFront", true);
-
-            lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
-        }
-        else if (x > 0)
-        {
-
-            playerAnimator.SetBool("isWalkingSide", true);
-
-            lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
-        }
-        else if (x < 0)
-        {
-            playerSprite.flipX = true;
-            playerAnimator.SetBool("isWalkingSide", true);
-
-            lastFacingDirection = new Vector2((playerRB.velocity.x), (playerRB.velocity.y));
-        }
-        else
-        {
-            playerSprite.flipX = false;
-            playerAnimator.SetBool("isWalkingFront", false);
-            playerAnimator.SetBool("isWalkingBack", false);
-            playerAnimator.SetBool("isWalkingSide", false);
-
-            switch (lastFacingDirection)
-            {
-                // TO DO :
-                // Set default sprite to last facing direction
-                // stop idle animation if character facing right, left or up
-            }
-        }
-
         Debug.Log("Last facing direction : " + lastFacingDirection);
     }
+    void IdleAnimation()
+    {
+        playerSprite.flipX = false;
+        playerAnimator.SetBool("isWalkingFront", false);
+        playerAnimator.SetBool("isWalkingBack", false);
+        playerAnimator.SetBool("isWalkingSide", false);
+    }
+
 
 }

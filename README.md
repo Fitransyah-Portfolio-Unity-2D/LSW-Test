@@ -5,6 +5,9 @@
 - Unity Editor 2021.3.2f1
 - Project start : 26 August 2022,  5:15 AM GMT
 
+- Additional Unity package :
+    - Input System : Version 1.3.0 - January 05, 2022
+
 ## Core Game Loop
 
 Estimated full scopre :
