@@ -51,8 +51,8 @@ public class Player : MonoBehaviour
     }
     void WalkAnimation(Vector2 direction)
     {
-        Vector2 up = new Vector2(0, 2f);
-        Vector2 right = new Vector2(2f, 0);
+        Vector2 up = new Vector2(0, 3f);
+        Vector2 right = new Vector2(3f, 0);
 
         switch (direction)
         {
