@@ -27,27 +27,25 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
        
-        Walk();
-        //WalkAnimation();
+        Move();
+        Animate();
     }
 
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-
-        Debug.Log(moveInput);
     }
-    void Walk()
+    void Move()
     {
         playerRB.velocity = moveInput * walkSpeed;
     }
-    void WalkAnimation()
+    void Animate()
     {
         float x = moveInput.x;
         float y = moveInput.y;
 
-        playerAnimator.SetFloat("MoveAnimX", x);
-        playerAnimator.SetFloat("MoveAnimY", y);
+        playerAnimator.SetFloat("AnimMoveX", x);
+        playerAnimator.SetFloat("AnimMoveY", y);
 
     }
 

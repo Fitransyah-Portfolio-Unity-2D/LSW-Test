@@ -33,4 +33,8 @@ Download url : https://assetstore.unity.com/packages/2d/characters/blink-s-rpg-a
 
 City Pack - Top Down - Pixel Art  
 Path in Project : Assets/City Pack  
-Download URL : https://assetstore.unity.com/packages/2d/textures-materials/city-pack-top-down-pixel-art-195403  
+Download URL : https://assetstore.unity.com/packages/2d/textures-materials/city-pack-top-down-pixel-art-195403 
+
+8-Directional Character Template
+Path in project : Assets/8-Directional Character Template
+Download URl : https://opengameart.org/content/8-directional-character-template
