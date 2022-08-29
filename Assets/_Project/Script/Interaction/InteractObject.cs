@@ -33,7 +33,10 @@ public class InteractObject : MonoBehaviour
         {
             infoPanelText.text = examineDescriptions[i];
 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            Debug.Log(examineDescriptions[i]);
+
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
