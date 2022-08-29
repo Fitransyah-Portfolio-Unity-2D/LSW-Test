@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace LSWTest.Inventory
 {
+    [RequireComponent(typeof(Image))]
     public class InventoryItem : MonoBehaviour
     {
         /// <summary>
@@ -21,7 +22,6 @@ namespace LSWTest.Inventory
             {
                 iconImage.enabled = true;
                 iconImage.sprite = item;
-                Destroy(iconImage);
             }
         }
         /// <summary>

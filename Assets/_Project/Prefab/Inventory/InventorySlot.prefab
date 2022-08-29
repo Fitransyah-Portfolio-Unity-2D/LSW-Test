@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1996541606030844749}
   - component: {fileID: 1996541606030844751}
   - component: {fileID: 1996541606030844748}
+  - component: {fileID: 8685848671044773252}
   m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8685848671044773252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996541606030844754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727f28153e5b276409efce2aac9f1757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 1136562895333995087}
 --- !u!1 &7280701558838468235
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +102,9 @@ GameObject:
   - component: {fileID: 2185985411385293847}
   - component: {fileID: 7857454925471991283}
   - component: {fileID: 7525202886799266809}
+  - component: {fileID: 1136562895333995087}
+  - component: {fileID: 3281413064483541743}
+  - component: {fileID: 4709359157090015793}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -153,3 +170,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1136562895333995087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280701558838468235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcbfbe151e02894b9576f8d201f0421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3281413064483541743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280701558838468235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60009d15f0925934b825e5d25e32c885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &4709359157090015793
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280701558838468235}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
