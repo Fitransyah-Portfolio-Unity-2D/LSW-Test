@@ -7,21 +7,27 @@ namespace LSWTest.Inventory
     {
         [SerializeField]
         InventoryItem itemIcon;
-        public void AddItems(Sprite item, int number)
-        {
-            itemIcon.SetItem(item);
-        }
 
+
+        #region IDragSoruce Implementation
         public Sprite GetItem()
         {
             return itemIcon.GetItem();
         }
-
         public int GetNumber()
         {
             // temporarily will return 1 untill we are working with
             // stackable items
             return 1;
+        }
+        #endregion
+
+
+
+        #region IDragDestination Implementation
+        public void RemoveItems(int number)
+        {
+            itemIcon.SetItem(null);
         }
 
         public int MaxAcceptable(Sprite item)
@@ -32,11 +38,11 @@ namespace LSWTest.Inventory
             }
             return 0;
         }
-
-        public void RemoveItems(int number)
+        public void AddItems(Sprite item, int number)
         {
-            itemIcon.SetItem(null);
+            itemIcon.SetItem(item);
         }
+        #endregion
     }
 }
 

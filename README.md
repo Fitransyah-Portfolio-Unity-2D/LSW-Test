@@ -27,6 +27,14 @@ Finished actual scope :
 - Static collider for non interactable environment in Tilemap (trees, cars and landscape)  
 - Interaction system with buildings + trigger collider
 - Simple UI for game info + player monologue  
+- Inventory panel with scroll rect  
+- Prefab for inventory slot and its item  
+- Implementing and adopting drap and drop feature to inventory UI (GameDev.Tv online course)  
+- Drag and drop feature :
+    - If item sprite is dragged to empyt slot will move into destination  
+    - If item sprite is dragged to a slot with filled slot than it will swap sprite with destionation sprite  
+    - If item sprite is dragged into outside area of inventory panel than it will snap back to source slot position  
+- .........
 
 ## External Assets 
 
