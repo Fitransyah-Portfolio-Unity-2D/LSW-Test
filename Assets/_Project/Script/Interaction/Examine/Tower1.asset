@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tower1
   m_EditorClassIdentifier: 
   examineDescriptions:
-  - This is the shop I'm looking for
-  - Should I check it?
+  - This building is looking nice.
+  - Is this where Blue Gravity Studios work?

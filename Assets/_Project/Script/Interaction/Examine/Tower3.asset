@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tower3
   m_EditorClassIdentifier: 
   examineDescriptions:
-  - This is the shop I'm looking for
-  - Should I check it?
+  - Like no one is inside
+  - I will just look for the shop
