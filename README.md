@@ -13,12 +13,13 @@
 
 Estimated full scope :
 - Player traverse within the world
-- Player interact with store building/NPC
-- Player enter shop UI mode
+- Player interact with buildings
+- Player have inventory system  
+- Player enter shop UI mode  
 - Player execute transaction 
-- Player acquire/equip item
-- Player exit shop UI mode
-- Player traverse within the world
+- Player acquire/equip item  
+- Player exit shop UI mode  
+- Player traverse within the world  
 
 Finished actual scope :
 - Player movement and animation with Blend Tree 
@@ -30,6 +31,7 @@ Finished actual scope :
 ## External Assets 
 
 All assets is free item in Unity Asset Store, please download from package manager.  
+Some assets are acquired from my personal game dev online course.
 
 Blink´s RPG Adventure  
 Path in project : Assets/Pinneaple Dev  
@@ -42,3 +44,11 @@ Download URL : https://assetstore.unity.com/packages/2d/textures-materials/city-
 8-Directional Character Template
 Path in project : Assets/8-Directional Character Template
 Download URl : https://opengameart.org/content/8-directional-character-template
+
+RPG Inventory icons  
+Path in project : Assets/RPG_inventory_icons
+Download URL : https://assetstore.unity.com/packages/2d/gui/icons/rpg-inventory-icons-56687
+
+GameDev.TV costum script for dragging
+Path in porject : Assets/_Project/GameDev.tv/Dragging Script
+Download URL : https://www.gamedev.tv/p/inventory

@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Examine Object", menuName = "Examine Property")]
-public class ExamineInteraction :ScriptableObject
+namespace LSWTest.Core
 {
-    [SerializeField]
-    List<string> examineDescriptions;
-
-    public List<string> GetDescriptionList()
+    [CreateAssetMenu(fileName = "New Examine Object", menuName = "Examine Property")]
+    public class ExamineInteraction : ScriptableObject
     {
-        return examineDescriptions;
+        [SerializeField]
+        List<string> examineDescriptions;
+
+        public List<string> GetDescriptionList()
+        {
+            return examineDescriptions;
+        }
     }
 }
+
+

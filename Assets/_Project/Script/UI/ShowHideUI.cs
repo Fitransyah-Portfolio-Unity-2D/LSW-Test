@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowHideUI : MonoBehaviour
+namespace LSWTest.UI
 {
-    [SerializeField] KeyCode toggleKey = KeyCode.Escape;
-    [SerializeField] GameObject uiContainer = null;
-
-    void Start()
+    public class ShowHideUI : MonoBehaviour
     {
-        uiContainer.SetActive(false);
-    }
+        [SerializeField] KeyCode toggleKey = KeyCode.Escape;
+        [SerializeField] GameObject uiContainer = null;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(toggleKey))
+        void Start()
         {
-            uiContainer.SetActive(!uiContainer.activeSelf);
+            uiContainer.SetActive(false);
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(toggleKey))
+            {
+                uiContainer.SetActive(!uiContainer.activeSelf);
+            }
         }
     }
 }
+
+
