@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e9f8feab335b4b86a4b8b8dba2957, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
-  examineDecriptions: []
+  examineDescriptions:
+  - This is the shop I'm looking for
+  - Should I check it?
