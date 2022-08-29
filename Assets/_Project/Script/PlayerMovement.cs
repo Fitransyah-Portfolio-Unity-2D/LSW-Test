@@ -26,9 +26,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         Move();
         Animate();
+
+        if (moveInput == Vector2.zero) return;
+        lastFacingDirection = moveInput;
     }
 
     void OnMove(InputValue value)
@@ -41,12 +43,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Animate()
     {
-        float x = moveInput.x;
-        float y = moveInput.y;
-
-        playerAnimator.SetFloat("AnimMoveX", x);
-        playerAnimator.SetFloat("AnimMoveY", y);
-
+        playerAnimator.SetFloat("AnimMoveMagnitude", playerRB.velocity.magnitude);
+        playerAnimator.SetFloat("AnimMoveX", lastFacingDirection.x);
+        playerAnimator.SetFloat("AnimMoveY", lastFacingDirection.y);
     }
 
 
