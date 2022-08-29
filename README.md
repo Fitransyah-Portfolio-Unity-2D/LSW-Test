@@ -11,7 +11,7 @@
 
 ## Core Game Loop
 
-Estimated full scopre :
+Estimated full scope :
 - Player traverse within the world
 - Player interact with store building/NPC
 - Player enter shop UI mode
@@ -21,7 +21,11 @@ Estimated full scopre :
 - Player traverse within the world
 
 Finished actual scope :
-- .............
+- Player movement and animation with Blend Tree 
+- Tilemap for world building  
+- Static collider for non interactable environment in Tilemap (trees, cars and landscape)  
+- Interaction system with buildings + trigger collider
+- Simple UI for game info + player monologue  
 
 ## External Assets 
 
