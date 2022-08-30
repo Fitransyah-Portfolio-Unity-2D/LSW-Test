@@ -9,7 +9,7 @@ namespace LSWTest.Inventory
     {
         [SerializeField] string itemID = null;
         [SerializeField] string displayName = null;
-        [SerializeField] string description = null;
+        [SerializeField][TextArea] string description = null;
         [SerializeField] Sprite icon = null;
         [SerializeField] bool stackable = false;
 
@@ -22,9 +22,7 @@ namespace LSWTest.Inventory
         /// <param name="itemID">
         /// UUID belong to a specific item
         /// </param>
-        /// <returns>
-        /// Item instance that have the same UUID
-        /// </returns>
+        /// <returns> Item instance that have the same UUID </returns>
         public static Item GetFromID(string itemID)
         {
             if (itemLookupCache == null)
@@ -71,9 +69,9 @@ namespace LSWTest.Inventory
         #region ISerializationCallbackReceiver
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
-            if (String.IsNullOrWhiteSpace(itemID) || String.IsNullOrEmpty(itemID))
+            if (String.IsNullOrWhiteSpace(itemID))
             {
-                itemID = System.Guid.NewGuid().ToString();
+                itemID = Guid.NewGuid().ToString();
             }
         }
 
