@@ -34,7 +34,13 @@ Finished actual scope :
     - If item sprite is dragged to empyt slot will move into destination  
     - If item sprite is dragged to a slot with filled slot than it will swap sprite with destionation sprite  
     - If item sprite is dragged into outside area of inventory panel than it will snap back to source slot position  
-- .........
+- Inventory System feature :
+    - Inventory.cs as a main source for inventory data attached to Player GO  
+    - Item.cs scriptable object with auto generated UUID as pre defined item in the game   
+    - Connecting this new system with existing UI system  
+    - InventorySlot.cs and InventoryItem.cs are controlled by new script InventoryUI.cs  
+    - InventoryUI.cs communicating with Inventory.cs to populate data to UI mock up  
+    - Limiting the slot size from Inventory.cs  (based player current state)
 
 ## External Assets 
 
