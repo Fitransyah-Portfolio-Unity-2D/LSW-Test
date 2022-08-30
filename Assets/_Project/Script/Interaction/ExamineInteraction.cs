@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace LSWTest.Core
 {
-    [CreateAssetMenu(fileName = "New Examine Object", menuName = "Examine Property")]
+    [CreateAssetMenu(fileName = "Examine Interaction", menuName = "LSW Test/Interaction/Examine")]
     public class ExamineInteraction : ScriptableObject
     {
         [SerializeField]
+        [TextArea]
         List<string> examineDescriptions;
 
         public List<string> GetDescriptionList()
