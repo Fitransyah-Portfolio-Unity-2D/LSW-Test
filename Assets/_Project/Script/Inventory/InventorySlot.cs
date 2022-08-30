@@ -3,16 +3,26 @@ using GameDevTV.Core.UI.Dragging;
 
 namespace LSWTest.Inventory
 {
-    public class InventorySlot : MonoBehaviour, IDragContainer<Sprite>
+    public class InventorySlot : MonoBehaviour, IDragContainer<Item>
     {
         [SerializeField]
         InventoryItem itemIcon;
 
+        int index;
+        Inventory inventory;
+
+        public void Setup(Inventory inventory, int index)
+        {
+            this.inventory = inventory;
+            this.index = index;
+            itemIcon.SetItem(inventory.GetItemInSlot(index));
+        }
+
 
         #region IDragSoruce Implementation
-        public Sprite GetItem()
+        public Item GetItem()
         {
-            return itemIcon.GetItem();
+            return inventory.GetItemInSlot(index);
         }
         public int GetNumber()
         {
@@ -20,27 +30,26 @@ namespace LSWTest.Inventory
             // stackable items
             return 1;
         }
+        public void RemoveItems(int number)
+        {
+            inventory.RemoveFromSlot(index);
+        }
         #endregion
 
 
 
         #region IDragDestination Implementation
-        public void RemoveItems(int number)
+        public int MaxAcceptable(Item item)
         {
-            itemIcon.SetItem(null);
-        }
-
-        public int MaxAcceptable(Sprite item)
-        {
-            if (GetItem() == null)
+            if (inventory.HasSpaceFor(item))
             {
                 return int.MaxValue;
             }
             return 0;
         }
-        public void AddItems(Sprite item, int number)
+        public void AddItems(Item item, int number)
         {
-            itemIcon.SetItem(item);
+            inventory.AddItemToSlot(index, item);
         }
         #endregion
     }
