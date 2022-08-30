@@ -57,6 +57,6 @@ RPG Inventory icons
 Path in project : Assets/RPG_inventory_icons
 Download URL : https://assetstore.unity.com/packages/2d/gui/icons/rpg-inventory-icons-56687
 
-GameDev.TV costum script for dragging
-Path in porject : Assets/_Project/GameDev.tv/Dragging Script
-Download URL : https://www.gamedev.tv/p/inventory
+GameDev.TV costum script for dragging  
+Path in porject : Assets/_Project/GameDev.tv/Dragging Script  
+Download URL : https://www.gamedev.tv/p/inventory  

@@ -47,7 +47,26 @@ namespace LSWTest.Inventory
             return itemLookupCache[itemID];
         }
 
-
+        public string GetItemID()
+        {
+            return itemID;
+        }
+        public string GetDisplayName()
+        {
+            return displayName;
+        }
+        public string GetDescription()
+        {
+            return description;
+        }
+        public Sprite GetIcon()
+        {
+            return icon;
+        }
+        public bool IsStackable()
+        {
+            return stackable;
+        }
 
         #region ISerializationCallbackReceiver
         void ISerializationCallbackReceiver.OnAfterDeserialize()
