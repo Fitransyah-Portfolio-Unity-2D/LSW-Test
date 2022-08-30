@@ -28,7 +28,7 @@ namespace LSWTest.Inventory
             if (itemLookupCache == null)
             {
                 itemLookupCache = new Dictionary<string, Item>();
-                var itemList = Resources.LoadAll<Item>("_Project");
+                var itemList = Resources.LoadAll<Item>("");
                 foreach (var item in itemList)
                 {
                     if (itemLookupCache.ContainsKey(item.itemID))

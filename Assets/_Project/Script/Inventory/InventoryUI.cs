@@ -15,6 +15,10 @@ namespace LSWTest.Inventory
             playerInventory = Inventory.GetPlayerInventory();
             playerInventory.OnInventoryUpdate += Redraw;
         }
+        private void Start()
+        {
+            Redraw();
+        }
 
         void Redraw()
         {
@@ -26,7 +30,7 @@ namespace LSWTest.Inventory
             for(int i = 0; i < playerInventory.GetSize(); i++)
             {
                 var itemUI = Instantiate(inventorySlotPrefab, transform);
-                //itemUI.
+                itemUI.Setup(playerInventory, i);
             }
         }
     }

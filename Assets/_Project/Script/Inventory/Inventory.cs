@@ -30,10 +30,19 @@ namespace LSWTest.Inventory
         {
             return slots.Length;
         }
+        /// <summary>
+        /// To get specific Item with slot reference
+        /// </summary>
+        /// <param name="slot"></param>
+        /// <returns> Return the Item correspondence to the mention slot </returns>
         public Item GetItemInSlot(int slot)
         {
             return slots[slot];
         }
+        /// <summary>
+        /// Remove item with slot reference
+        /// </summary>
+        /// <param name="slot"></param>
         public void RemoveFromSlot(int slot)
         {
             slots[slot] = null;
@@ -42,6 +51,15 @@ namespace LSWTest.Inventory
                 OnInventoryUpdate();
             }
         }
+        /// <summary>
+        /// To add Item into reference slot, if slot is empty
+        /// If stack is not empty and this Item tipe exist will add to following slot
+        /// If stack is not empty and this Item tipe not exist will try to find first empty slot from index 0
+        /// Eventhough return type is boolean but action still executed within this methods
+        /// </summary>
+        /// <param name="slot"></param>
+        /// <param name="item"></param>
+        /// <returns> True value when success putting Item anywhere in the slot </returns>
         public bool AddItemToSlot(int slot, Item item)
         {
             if (slots[slot] != null)
@@ -57,6 +75,21 @@ namespace LSWTest.Inventory
             }
             return true;
         }
+        /// <summary>
+        /// Search Inventory if any available space for this Item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> Return True if space is available </returns>
+        public bool HasSpaceFor(Item item)
+        {
+            return FindSlot(item) >= 0;
+        }
+        /// <summary>
+        /// First checking inventory if any slot available, if not the will return thsi function as False
+        /// If slot available will put the Item reference into slot that available
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> Return True when succes putting the item and False when the attempt is failed </returns>
         public bool AddToFirstEmptySlot(Item item)
         {
             int i = FindSlot(item);
@@ -67,15 +100,28 @@ namespace LSWTest.Inventory
             }
 
             slots[i] = item;
+
             if (OnInventoryUpdate != null)
             {
                 OnInventoryUpdate();
             }
             return true;
         }
-        public bool HasSpaceFor(Item item)
+        /// <summary>
+        /// Search Inventory if it has this Item type
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> Return True when Item is exist in Inventory </returns>
+        public bool HasItem(Item item)
         {
-            return FindSlot(item) >= 0;
+            for(int i = 0; i < slots.Length; i++)
+            {
+                if (object.ReferenceEquals(slots[i], item))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
@@ -83,6 +129,15 @@ namespace LSWTest.Inventory
         private void Awake()
         {
             slots = new Item[inventorySize];
+
+            // This is where to setup Player Item before game start 
+            // slots size/index is depend on "inventorySize"
+            // use itemID that generated in every Item Scriptable Object
+            slots[3] = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
+            slots[10] = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
+            slots[16] = Item.GetFromID("8649d11f-e595-4eb4-8d8c-03a8eb00cb52");
+            slots[19] = Item.GetFromID("09dcbe2e-7bc0-40ed-9d76-9880b052eeec");
+
         }
         int FindSlot(Item item)
         {

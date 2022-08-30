@@ -19,7 +19,7 @@ namespace LSWTest.Inventory
         }
 
 
-        #region IDragSoruce Implementation
+        #region IDragSource Implementation
         public Item GetItem()
         {
             return inventory.GetItemInSlot(index);
