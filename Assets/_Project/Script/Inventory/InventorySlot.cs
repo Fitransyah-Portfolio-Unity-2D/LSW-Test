@@ -6,7 +6,7 @@ namespace LSWTest.Inventory
     public class InventorySlot : MonoBehaviour, IDragContainer<Item>
     {
         [SerializeField]
-        InventoryItem itemIcon;
+        InventoryItem itemIcon = null;
 
         int index;
         Inventory inventory;
