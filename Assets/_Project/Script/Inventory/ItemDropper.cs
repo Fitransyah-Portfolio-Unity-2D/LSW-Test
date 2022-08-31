@@ -6,15 +6,9 @@ namespace LSWTest.Inventory
 {
     public class ItemDropper : MonoBehaviour
     {
+        // this will be usefull for saving system
         List<Pickup> droppedItems = new List<Pickup>();
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DropItem(Item.GetFromID("8649d11f-e595-4eb4-8d8c-03a8eb00cb52"));
-            }
-        }
         public void DropItem(Item item)
         {
             SpawnPickup(item, GetDropLocation());
@@ -27,6 +21,8 @@ namespace LSWTest.Inventory
         public void SpawnPickup(Item item, Vector3 spawnLocation)
         {
             var pickup = item.SpawnPickup(spawnLocation);
+            var collectibles = GameObject.FindWithTag("Collectibles");
+            pickup.transform.SetParent(collectibles.transform);
             droppedItems.Add(pickup);
         }       
     }
