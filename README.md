@@ -41,7 +41,14 @@ Finished actual scope :
     - InventorySlot.cs and InventoryItem.cs are controlled by new script InventoryUI.cs  
     - InventoryUI.cs communicating with Inventory.cs to populate data to UI mock up  
     - Limiting the slot size from Inventory.cs  (based player current state)
-
+- Item Pickup System  
+    - Spawning pickup on the world on game start  
+    - Pickup the item to inventory by run over it  
+    - Sync the UI with player inventory  
+- Item drop system  
+    - Create ItemDropper.cs this script should located at Player GO  
+    - Its purpose is to drop item into the world based on player location  
+    - Design this script for future extension (ex : with saving system)  
 ## External Assets 
 
 All assets is free item in Unity Asset Store, please download from package manager.  
