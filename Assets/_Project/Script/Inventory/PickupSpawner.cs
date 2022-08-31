@@ -17,10 +17,31 @@ namespace LSWTest.Inventory
         {
             SpawnPickup();
         }
+
+        public Pickup GetPickup()
+        {
+            return GetComponentInChildren<Pickup>();
+        }
+        /// <summary>
+        /// Information whether this item/pickup need to present in the world or not
+        /// </summary>
+        /// <returns> Return True once the pickup is collected </returns>
+        public bool IsCollected()
+        {
+            return GetPickup() == null;
+        }
+
         void SpawnPickup()
         {
             var spawnedPickup = item.SpawnPickup(transform.position);
             spawnedPickup.transform.SetParent(transform);
+        }
+        void DestroyPickup()
+        {
+            if (GetPickup())
+            {
+                Destroy(GetPickup().gameObject);
+            }
         }
     }
 }
