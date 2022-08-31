@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c548cc7c3df960a4c923372d744ef6ed, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  itemID: 4f89c0f2-762b-454e-8dc2-d2ae2684144f
+  displayName: Wooden Shield
+  description: Pretty solid for light attack
+  icon: {fileID: 21300000, guid: b97c91e8b348f3f4ebdc11f5c82182cd, type: 3}
+  pickup: {fileID: 4816851241444307355, guid: 59c883775668871499afcec02b6b6584, type: 3}
+  stackable: 0

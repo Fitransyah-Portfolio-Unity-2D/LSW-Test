@@ -10,8 +10,8 @@ namespace LSWTest.Inventory
     /// </summary>
     public class Pickup : MonoBehaviour
     {
-        Item item;
-        Inventory inventory;
+        [SerializeField] Item item;
+        [SerializeField] Inventory inventory;
 
         private void Awake()
         {
