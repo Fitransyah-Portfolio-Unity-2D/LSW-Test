@@ -15,6 +15,7 @@ public class AudioSetting : MonoBehaviour
 
     Inventory inventory;
 
+    bool soundEffectToggle = true;
     private void Awake()
     {
         if (instance == null)
@@ -30,15 +31,14 @@ public class AudioSetting : MonoBehaviour
     private void Start()
     {
         backsound.clip = backsoundClip;
-        PlayBacksound();
+        ToggleBacksound();
         onePlay.clip = null;
 
         inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
-        inventory.OnInventoryUpdate += PlayItemTakenSound;
-
-        
+        inventory.OnInventoryUpdate += PlayItemTakenSound;   
     }
-    void PlayBacksound()
+    
+    public void ToggleBacksound()
     {
         if (!backsound.isPlaying)
         {
@@ -49,8 +49,16 @@ public class AudioSetting : MonoBehaviour
             backsound.Stop();
         }
     }
+    public void ToggleSFX()
+    {
+        soundEffectToggle = !soundEffectToggle;
+    }
     void PlayItemTakenSound()
     {
-        onePlay.PlayOneShot(itemTakenClip);
+        if (soundEffectToggle)
+        {
+            onePlay.PlayOneShot(itemTakenClip);
+        }
     }
+
 }
