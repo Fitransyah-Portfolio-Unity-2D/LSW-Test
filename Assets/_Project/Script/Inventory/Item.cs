@@ -60,6 +60,7 @@ namespace LSWTest.Inventory
         public Pickup SpawnPickup(Vector3 position)
         {
             var pickup = Instantiate(this.pickup);
+            var collectibles = GameObject.FindWithTag("Collectibles");
             pickup.transform.position = position;
             pickup.Setup(this);
             return pickup;

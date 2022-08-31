@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InfoPanel
   - Continue
+  - Collectibles
   layers:
   - Default
   - TransparentFX

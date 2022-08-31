@@ -16,4 +16,5 @@ MonoBehaviour:
   displayName: Meat
   description: Solution to keep yourself alive.
   icon: {fileID: 21300000, guid: 174fc5640b7a9c746bc3b0117490dbf4, type: 3}
+  pickup: {fileID: 3848723788791525161, guid: ee2667fbab56f85438417695aa7ebaca, type: 3}
   stackable: 0

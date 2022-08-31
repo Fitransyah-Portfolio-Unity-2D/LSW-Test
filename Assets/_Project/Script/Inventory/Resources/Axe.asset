@@ -16,4 +16,5 @@ MonoBehaviour:
   displayName: Silver Axe
   description: It's old and rusty but could do the job.
   icon: {fileID: 21300000, guid: 930bff393e678824f837e539280c09d6, type: 3}
+  pickup: {fileID: 3848723788791525161, guid: 171399d521c0c924cb125abfffc6aff0, type: 3}
   stackable: 0

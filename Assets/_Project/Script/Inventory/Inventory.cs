@@ -135,8 +135,6 @@ namespace LSWTest.Inventory
             // use itemID that generated in every Item Scriptable Object
             slots[3] = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
             slots[10] = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
-            slots[16] = Item.GetFromID("8649d11f-e595-4eb4-8d8c-03a8eb00cb52");
-            slots[19] = Item.GetFromID("09dcbe2e-7bc0-40ed-9d76-9880b052eeec");
 
         }
         int FindSlot(Item item)
