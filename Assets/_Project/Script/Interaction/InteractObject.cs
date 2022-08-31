@@ -15,23 +15,26 @@ namespace LSWTest.Core
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Player")
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (collision.gameObject == player)
             {
                 infoPanelText = GameObject.FindGameObjectWithTag("InfoPanel").GetComponent<TMP_Text>();
                 startingInfoPanelText = infoPanelText.text;
-                StartCoroutine(DisplayExamineDescription(examineInteraction.GetDescriptionList()));
+                StartCoroutine(ExamineRoutine(examineInteraction.GetDescriptionList()));
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Player")
+
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (collision.gameObject == player)
             {
-                StopCoroutine(DisplayExamineDescription(examineInteraction.GetDescriptionList()));
-                infoPanelText.text = startingInfoPanelText;
+                StartCoroutine(StopExamineRoutine());
             }
         }
-        public IEnumerator DisplayExamineDescription(List<string> examineDescriptions)
+        IEnumerator ExamineRoutine(List<string> examineDescriptions)
         {
+            
             for (int i = 0; i < examineDescriptions.Count; i++)
             {
                 infoPanelText.text = examineDescriptions[i];
@@ -41,6 +44,12 @@ namespace LSWTest.Core
                 yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
                 yield return new WaitForSeconds(0.75f);
             }
+        }
+        IEnumerator StopExamineRoutine()
+        {
+            yield return new WaitForSeconds(1f);
+            infoPanelText.text = startingInfoPanelText;
+            StopCoroutine(ExamineRoutine(examineInteraction.GetDescriptionList()));
         }
     }
 }

@@ -3421,7 +3421,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3325791, y: 1}
+    m_SensorSize: {x: 1.7794561, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3468,7 +3468,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 50, y: 50}
-  m_SizeDelta: {x: 1000, y: 600}
+  m_SizeDelta: {x: 1300, y: 600}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &144896843
 MonoBehaviour:
@@ -3566,9 +3566,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "TODO : \nFind building with SHOP sign on it.\nCheck out other buildings\nPress
-    I to open inventory\nDrag and Drop Item in inventory UI using left click on mouse\nPress
-    SPACE to continue text prompt"
+  m_text: "TODO : \nFind building with SHOP sign on it.\nCheck out other buildings\nPickup
+    and drop items\n\nCONTROL : \nI  = to open/close inventory\nSPACE = continue
+    text prompt\nESC = Exit game\nLeft click = Drag and drop item in UI inventory"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da903965885891949bd486c484902eb2, type: 2}
   m_sharedMaterial: {fileID: 2582640439692455350, guid: da903965885891949bd486c484902eb2, type: 2}
@@ -3607,7 +3607,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 3
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1676278047}
   m_HandleRect: {fileID: 1676278046}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7873,6 +7873,7 @@ GameObject:
   - component: {fileID: 1341343151}
   - component: {fileID: 1341343158}
   - component: {fileID: 1341343159}
+  - component: {fileID: 1341343160}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -8072,6 +8073,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1cb54250d41bc4ab5c55bd75a25a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1341343160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341343150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba999edb9f40b346a0b887fbba6e03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoPanelText: "TODO : \nFind building with SHOP sign on it.\nCheck out other buildings\nPickup
+    and drop items\n\nCONTROL : \nI  = to open/close inventory\nSPACE = continue
+    text prompt\nESC = Exit game\nLeft click = Drag and drop item in UI inventory"
 --- !u!224 &1342502320 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1996541606030844749, guid: 3b455096841520f4384892d255a43a6a, type: 3}
@@ -19939,7 +19955,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3325791, y: 1}
+    m_SensorSize: {x: 1.7794561, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -21468,7 +21484,7 @@ GameObject:
   - component: {fileID: 1829006728}
   - component: {fileID: 1829006729}
   m_Layer: 0
-  m_Name: AudioSetting
+  m_Name: AudioSetting-----------------------------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
