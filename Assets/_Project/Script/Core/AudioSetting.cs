@@ -1,3 +1,4 @@
+using LSWTest.Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class AudioSetting : MonoBehaviour
 
     public AudioSource onePlay;
     public AudioSource backsound;
+
+    Inventory inventory;
 
     private void Awake()
     {
@@ -29,8 +32,13 @@ public class AudioSetting : MonoBehaviour
         backsound.clip = backsoundClip;
         PlayBacksound();
         onePlay.clip = null;
+
+        inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
+        inventory.OnInventoryUpdate += PlayItemTakenSound;
+
+        
     }
-    public  void PlayBacksound()
+    void PlayBacksound()
     {
         if (!backsound.isPlaying)
         {
@@ -41,7 +49,7 @@ public class AudioSetting : MonoBehaviour
             backsound.Stop();
         }
     }
-    public void ItemTakenSound()
+    void PlayItemTakenSound()
     {
         onePlay.PlayOneShot(itemTakenClip);
     }
