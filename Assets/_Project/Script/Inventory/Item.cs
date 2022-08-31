@@ -7,10 +7,17 @@ namespace LSWTest.Inventory
     [CreateAssetMenu(menuName = "LSW Test/Inventory/Item")]
     public class Item : ScriptableObject, ISerializationCallbackReceiver
     {
+        [Tooltip("Auto-generated UUID for saving/loading. Clear this field if you want to generate a new one.")]
         [SerializeField] string itemID = null;
+        [Tooltip("Item name to be displayed in UI.")]
         [SerializeField] string displayName = null;
+        [Tooltip("Item description to be displayed in UI.")]
         [SerializeField][TextArea] string description = null;
+        [Tooltip("The UI icon to represent this item in the inventory.")]
         [SerializeField] Sprite icon = null;
+        [Tooltip("The prefab that should be spawned when this item is dropped.")]
+        [SerializeField] Pickup pickup = null;
+        [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
         [SerializeField] bool stackable = false;
 
         static Dictionary<string, Item> itemLookupCache;
@@ -44,7 +51,19 @@ namespace LSWTest.Inventory
             if (itemID == null || !itemLookupCache.ContainsKey(itemID)) return null;
             return itemLookupCache[itemID];
         }
-
+        /// <summary>
+        /// Spawn the pickup prefab into the game world. This method should be called by another script that controlling spawning
+        /// Script who called this method should at least present in the world and have Transform component on it
+        /// </summary>
+        /// <param name="position"> Position is defined by gameobject that handle spawning usually prefab </param>
+        /// <returns> Return clone of this Pickup prefab with complete associated Item data data </returns>
+        public Pickup SpawnPickup(Vector3 position)
+        {
+            var pickup = Instantiate(this.pickup);
+            pickup.transform.position = position;
+            pickup.Setup(this);
+            return pickup;
+        }
         public string GetItemID()
         {
             return itemID;
