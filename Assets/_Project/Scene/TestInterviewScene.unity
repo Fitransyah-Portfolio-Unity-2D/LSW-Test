@@ -289,7 +289,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -500, y: 100}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &25468877
 MonoBehaviour:
@@ -8357,9 +8357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba999edb9f40b346a0b887fbba6e03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoPanelText: "TODO : \nFind building with SHOP sign on it.\nCheck out other buildings\nPickup
-    and drop items\n\nCONTROL : \nI  = to open/close inventory\nSPACE = continue
-    text prompt\nESC = Exit game\nLeft click = Drag and drop item in UI inventory"
 --- !u!224 &1342502320 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1996541606030844749, guid: 3b455096841520f4384892d255a43a6a, type: 3}
@@ -22072,7 +22069,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -200, y: 100}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1983804816
 MonoBehaviour:

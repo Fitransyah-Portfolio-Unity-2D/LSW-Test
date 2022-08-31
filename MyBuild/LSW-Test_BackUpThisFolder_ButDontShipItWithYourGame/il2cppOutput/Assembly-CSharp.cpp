@@ -1957,8 +1957,6 @@ struct AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299  : public AudioBeha
 // GameSetting
 struct GameSetting_t096593C1BA1207650F131C547CBF1C701B6ACCD5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	// System.String GameSetting::infoPanelText
-	String_t* ___infoPanelText_4;
 };
 
 // LSWTest.Core.InteractObject

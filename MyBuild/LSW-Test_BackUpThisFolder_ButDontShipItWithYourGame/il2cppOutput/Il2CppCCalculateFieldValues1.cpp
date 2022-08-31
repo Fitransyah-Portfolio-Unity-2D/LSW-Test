@@ -15581,13 +15581,6 @@ struct EventTrigger_tAEBFB7A16CA99343EA87722F78884BF8646BAE1B  : public MonoBeha
 	List_1_tA70D786D375D198C77EBB594AE632A6DFC82A440* ___m_Delegates_4;
 };
 
-// GameSetting
-struct GameSetting_t096593C1BA1207650F131C547CBF1C701B6ACCD5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
-{
-	// System.String GameSetting::infoPanelText
-	String_t* ___infoPanelText_4;
-};
-
 // Cinemachine.GroupWeightManipulator
 struct GroupWeightManipulator_tCB9D6F406D2E95A5DB2616F503666C4AB47989ED  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -20427,9 +20420,6 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4532[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4535[7] = 
 {
 	static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A_StaticFields, ___instance_4)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___backsoundClip_5)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___itemTakenClip_6)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___onePlay_7)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___backsound_8)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___inventory_9)),static_cast<int32_t>(offsetof(AudioSetting_t285C6A519320B427F29DD88A4C9047248DB6FD5A, ___soundEffectToggle_10)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4536[1] = 
-{
-	static_cast<int32_t>(offsetof(GameSetting_t096593C1BA1207650F131C547CBF1C701B6ACCD5, ___infoPanelText_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4537[2] = 
 {
 	static_cast<int32_t>(offsetof(ShowHideUI_tA342D32AB4743AB272EB6E915D084CB550CC4AC6, ___toggleKey_4)),static_cast<int32_t>(offsetof(ShowHideUI_tA342D32AB4743AB272EB6E915D084CB550CC4AC6, ___uiContainer_5)),};
