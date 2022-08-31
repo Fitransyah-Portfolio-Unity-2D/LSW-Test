@@ -3701,8 +3701,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "TODO : \nFind building with SHOP sign on it.\nCheck out other buildings\nPickup
-    and drop items\n\nCONTROL : \nI  = to open/close inventory\nSPACE = continue
-    text prompt\nESC = Exit game\nLeft click = Drag and drop item in UI inventory"
+    and drop items\n\nCONTROL : \nWASD = Move player\nI  = to open/close inventory\nSPACE
+    = continue text prompt\nESC = Exit game\nLeft click = Drag and drop item in UI
+    inventory"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da903965885891949bd486c484902eb2, type: 2}
   m_sharedMaterial: {fileID: 2582640439692455350, guid: da903965885891949bd486c484902eb2, type: 2}
