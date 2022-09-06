@@ -56,4 +56,7 @@ public class EquipmentSlot : MonoBehaviour , IDragContainer<Item>
         item = null;
         inventoryItemIcon.SetItem(null);
     }
+
+    // TO DO
+    // change player sprite as per equipment used 
 }
