@@ -9,7 +9,13 @@ namespace LSWTest.Inventory
     {
         [SerializeField] int inventorySize = 16;
 
-        Item[] slots;
+        InventorySlot[] slots;
+
+        struct InventorySlot
+        {
+            public Item item;
+            public int number;
+        }
 
         public event Action OnInventoryUpdate;
         /// <summary>
@@ -90,7 +96,7 @@ namespace LSWTest.Inventory
         /// </summary>
         /// <param name="item"></param>
         /// <returns> Return True when succes putting the item and False when the attempt is failed </returns>
-        public bool AddToFirstEmptySlot(Item item)
+        public bool AddToFirstEmptySlot(Item item, int number)
         {
             int i = FindSlot(item);
 
@@ -99,6 +105,7 @@ namespace LSWTest.Inventory
                 return false;
             }
 
+            // TO DO
             slots[i] = item;
 
             if (OnInventoryUpdate != null)

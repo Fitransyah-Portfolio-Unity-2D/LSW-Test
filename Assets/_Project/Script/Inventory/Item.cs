@@ -57,11 +57,12 @@ namespace LSWTest.Inventory
         /// </summary>
         /// <param name="position"> Position is defined by gameobject that handle spawning usually prefab </param>
         /// <returns> Return clone of this Pickup prefab with complete associated Item data data </returns>
-        public Pickup SpawnPickup(Vector3 position)
+        public Pickup SpawnPickup(Vector3 position, int number)
         {
             var pickup = Instantiate(this.pickup);
             var collectibles = GameObject.FindWithTag("Collectibles");
             pickup.transform.position = position;
+            // TO DO
             pickup.Setup(this);
             return pickup;
         }

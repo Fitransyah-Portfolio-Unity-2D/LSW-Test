@@ -33,6 +33,7 @@ namespace LSWTest.Inventory
 
         void SpawnPickup()
         {
+            // TO DO
             var spawnedPickup = item.SpawnPickup(transform.position);
             spawnedPickup.transform.SetParent(transform);
         }

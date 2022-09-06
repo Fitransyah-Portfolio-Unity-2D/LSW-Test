@@ -23,7 +23,8 @@ namespace LSWTest.Inventory
         /// Instantiated in the world
         /// </summary>
         /// <param name="item"> Item type data need to be stored in this instance </param>
-        public void Setup(Item item)
+        // TO DO    
+        public void Setup(Item item, int number)
         {
             this.item = item;   
         }
@@ -42,6 +43,7 @@ namespace LSWTest.Inventory
         /// </summary>
         public void PickupItem()
         {
+            // TO DO
             bool foundSlot = inventory.AddToFirstEmptySlot(item);
             if (foundSlot)
             {
