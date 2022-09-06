@@ -9,13 +9,14 @@ namespace LSWTest.Inventory
         InventoryItem itemIcon = null;
 
         int index;
+        Item item;
         Inventory inventory;
 
         public void Setup(Inventory inventory, int index)
         {
             this.inventory = inventory;
             this.index = index;
-            itemIcon.SetItem(inventory.GetItemInSlot(index));
+            itemIcon.SetItem(inventory.GetItemInSlot(index), inventory.GetNumberInSlot(index));
         }
 
 
@@ -26,13 +27,11 @@ namespace LSWTest.Inventory
         }
         public int GetNumber()
         {
-            // temporarily will return 1 untill we are working with
-            // stackable items
-            return 1;
+            return inventory.GetNumberInSlot(index);
         }
         public void RemoveItems(int number)
         {
-            inventory.RemoveFromSlot(index);
+            inventory.RemoveFromSlot(index, number);
         }
         #endregion
 
@@ -49,7 +48,7 @@ namespace LSWTest.Inventory
         }
         public void AddItems(Item item, int number)
         {
-            inventory.AddItemToSlot(index, item);
+            inventory.AddItemToSlot(index, item, number);
         }
         #endregion
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace LSWTest.Inventory
 {
@@ -43,15 +44,25 @@ namespace LSWTest.Inventory
         /// <returns> Return the Item correspondence to the mention slot </returns>
         public Item GetItemInSlot(int slot)
         {
-            return slots[slot];
+            return slots[slot].item;
+        }
+        public int GetNumberInSlot(int slot)
+        {
+            return slots[slot].number;
         }
         /// <summary>
         /// Remove item with slot reference
         /// </summary>
         /// <param name="slot"></param>
-        public void RemoveFromSlot(int slot)
+        public void RemoveFromSlot(int slot, int number)
         {
-            slots[slot] = null;
+            slots[slot].number -= number;
+            if (slots[slot].number <= 0)
+            {
+                slots[slot].number = 0;
+                slots[slot].item = null;
+            }
+            
             if (OnInventoryUpdate != null)
             {
                 OnInventoryUpdate();
@@ -66,14 +77,21 @@ namespace LSWTest.Inventory
         /// <param name="slot"></param>
         /// <param name="item"></param>
         /// <returns> True value when success putting Item anywhere in the slot </returns>
-        public bool AddItemToSlot(int slot, Item item)
+        public bool AddItemToSlot(int slot, Item item, int number)
         {
-            if (slots[slot] != null)
+            if (slots[slot].item != null)
             {
-                return AddToFirstEmptySlot(item);
+                return AddToFirstEmptySlot(item, number);
             }
 
-            slots[slot] = item;
+            var i = FindStack(item);
+            if (i >= 0)
+            {
+                slot = i;
+            }
+
+            slots[slot].item = item;
+            slots[slot].number += number;
 
             if(OnInventoryUpdate != null)
             {
@@ -94,7 +112,8 @@ namespace LSWTest.Inventory
         /// First checking inventory if any slot available, if not the will return thsi function as False
         /// If slot available will put the Item reference into slot that available
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">The item to add</param>
+        /// <param name="number">Number of item to add</param>
         /// <returns> Return True when succes putting the item and False when the attempt is failed </returns>
         public bool AddToFirstEmptySlot(Item item, int number)
         {
@@ -105,8 +124,8 @@ namespace LSWTest.Inventory
                 return false;
             }
 
-            // TO DO
-            slots[i] = item;
+            slots[i].item = item;
+            slots[i].number += number;
 
             if (OnInventoryUpdate != null)
             {
@@ -123,7 +142,7 @@ namespace LSWTest.Inventory
         {
             for(int i = 0; i < slots.Length; i++)
             {
-                if (object.ReferenceEquals(slots[i], item))
+                if (object.ReferenceEquals(slots[i].item, item))
                 {
                     return true;
                 }
@@ -135,24 +154,45 @@ namespace LSWTest.Inventory
         #region Private Methods
         private void Awake()
         {
-            slots = new Item[inventorySize];
+            slots = new InventorySlot[inventorySize];
 
             // This is where to setup Player Item before game start 
             // slots size/index is depend on "inventorySize"
             // use itemID that generated in every Item Scriptable Object
-            slots[0] = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
-            slots[1] = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
+            slots[0].item = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
+            slots[1].item = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
 
         }
         int FindSlot(Item item)
         {
-            return FindEmptySlot();
+            int i = FindStack(item);
+            if (i < 0)
+            {
+                i = FindEmptySlot();
+            }
+            return i;
         }
         int FindEmptySlot()
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i] == null)
+                if (slots[i].item == null)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        private int FindStack(Item item)
+        {
+            if (!item.IsStackable())
+            {
+                return -1;
+            }
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+               if (Object.ReferenceEquals(slots[i].item, item))
                 {
                     return i;
                 }

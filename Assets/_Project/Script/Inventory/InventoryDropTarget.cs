@@ -14,7 +14,7 @@ namespace LSWTest.Inventory
         public void AddItems(Item item, int number)
         {
             var player = GameObject.FindWithTag("Player");
-            player.GetComponent<ItemDropper>().DropItem(item);
+            player.GetComponent<ItemDropper>().DropItem(item, number);
             
         }
 

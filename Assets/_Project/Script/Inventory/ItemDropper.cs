@@ -8,11 +8,13 @@ namespace LSWTest.Inventory
     {
         // this will be usefull for saving system
         List<Pickup> droppedItems = new List<Pickup>();
-
         public void DropItem(Item item)
         {
-            // TO DO
-            SpawnPickup(item, GetDropLocation());
+            SpawnPickup(item, GetDropLocation(),1);
+        }
+        public void DropItem(Item item, int number)
+        {
+            SpawnPickup(item, GetDropLocation(), number);
         }
         protected virtual Vector3 GetDropLocation()
         {
@@ -21,8 +23,7 @@ namespace LSWTest.Inventory
         }
         public void SpawnPickup(Item item, Vector3 spawnLocation, int number)
         {
-            // TO DO
-            var pickup = item.SpawnPickup(spawnLocation);
+            var pickup = item.SpawnPickup(spawnLocation, number);
             var collectibles = GameObject.FindWithTag("Collectibles");
             pickup.transform.SetParent(collectibles.transform);
             droppedItems.Add(pickup);

@@ -20,7 +20,7 @@ namespace LSWTest.Inventory
         public override void UpdateTooltip(GameObject tooltip)
         {
             var itemTooltip = tooltip.GetComponent<ItemTooltip>();
-            if (itemTooltip != null) ;
+            if (!itemTooltip) return;
 
             var item = GetComponent<InventorySlot>().GetItem();
 

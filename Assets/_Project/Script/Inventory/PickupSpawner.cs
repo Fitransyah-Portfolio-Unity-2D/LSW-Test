@@ -13,6 +13,8 @@ namespace LSWTest.Inventory
     {
         [SerializeField] Item item = null;
 
+        int number = 1;
+
         private void Awake()
         {
             SpawnPickup();
@@ -33,8 +35,7 @@ namespace LSWTest.Inventory
 
         void SpawnPickup()
         {
-            // TO DO
-            var spawnedPickup = item.SpawnPickup(transform.position);
+            var spawnedPickup = item.SpawnPickup(transform.position, number);
             spawnedPickup.transform.SetParent(transform);
         }
         void DestroyPickup()
