@@ -133,8 +133,8 @@ namespace LSWTest.Inventory
             // This is where to setup Player Item before game start 
             // slots size/index is depend on "inventorySize"
             // use itemID that generated in every Item Scriptable Object
-            slots[3] = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
-            slots[10] = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
+            slots[0] = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
+            slots[1] = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
 
         }
         int FindSlot(Item item)
