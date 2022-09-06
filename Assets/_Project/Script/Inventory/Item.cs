@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace LSWTest.Inventory
 {
-    [CreateAssetMenu(menuName = "LSW Test/Inventory/Item")]
-    public class Item : ScriptableObject, ISerializationCallbackReceiver
+    public abstract class Item : ScriptableObject, ISerializationCallbackReceiver
     {
         [Tooltip("Auto-generated UUID for saving/loading. Clear this field if you want to generate a new one.")]
         [SerializeField] string itemID = null;

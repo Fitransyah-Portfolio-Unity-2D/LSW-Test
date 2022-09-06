@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c548cc7c3df960a4c923372d744ef6ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 159989761a5b8e24a99ea85c97e5e37b, type: 3}
   m_Name: Book
   m_EditorClassIdentifier: 
   itemID: 8649d11f-e595-4eb4-8d8c-03a8eb00cb52
@@ -18,3 +18,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 60af996e78a7fc34198fb731200076bf, type: 3}
   pickup: {fileID: 3848723788791525161, guid: 2ca5415c995a3964fb01527a72f9298f, type: 3}
   stackable: 0
+  allowedEquipLocation: 2

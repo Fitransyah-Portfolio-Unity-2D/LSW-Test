@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c548cc7c3df960a4c923372d744ef6ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 159989761a5b8e24a99ea85c97e5e37b, type: 3}
   m_Name: Meat
   m_EditorClassIdentifier: 
   itemID: 09dcbe2e-7bc0-40ed-9d76-9880b052eeec
@@ -17,4 +17,5 @@ MonoBehaviour:
   description: Solution to keep yourself alive.
   icon: {fileID: 21300000, guid: 174fc5640b7a9c746bc3b0117490dbf4, type: 3}
   pickup: {fileID: 3848723788791525161, guid: ee2667fbab56f85438417695aa7ebaca, type: 3}
-  stackable: 0
+  stackable: 1
+  allowedEquipLocation: 2
