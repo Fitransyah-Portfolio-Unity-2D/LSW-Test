@@ -62,7 +62,6 @@ namespace LSWTest.Inventory
             var pickup = Instantiate(this.pickup);
             var collectibles = GameObject.FindWithTag("Collectibles");
             pickup.transform.position = position;
-            // TO DO
             pickup.Setup(this, number);
             return pickup;
         }

@@ -2,6 +2,7 @@ using GameDevTV.Core.UI.Dragging;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace LSWTest.Inventory
 {
@@ -14,8 +15,7 @@ namespace LSWTest.Inventory
         public void AddItems(Item item, int number)
         {
             var player = GameObject.FindWithTag("Player");
-            player.GetComponent<ItemDropper>().DropItem(item, number);
-            
+            player.GetComponent<ItemDropper>().DropItem(item, number); 
         }
 
         public int MaxAcceptable(Item item)

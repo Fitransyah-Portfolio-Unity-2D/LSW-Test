@@ -12,8 +12,7 @@ namespace LSWTest.Inventory
     {
         [SerializeField] Item item;
         [SerializeField] Inventory inventory;
-
-        int number = 1;
+        [SerializeField] int number = 1;
 
         private void Awake()
         {
@@ -25,7 +24,6 @@ namespace LSWTest.Inventory
         /// Instantiated in the world
         /// </summary>
         /// <param name="item"> Item type data need to be stored in this instance </param>
-        // TO DO    
         public void Setup(Item item, int number)
         {
             this.item = item;  

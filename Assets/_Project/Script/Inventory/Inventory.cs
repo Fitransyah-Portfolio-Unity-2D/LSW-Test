@@ -9,9 +9,9 @@ namespace LSWTest.Inventory
     public class Inventory : MonoBehaviour
     {
         [SerializeField] int inventorySize = 16;
-
+        [SerializeField]
         InventorySlot[] slots;
-
+        [Serializable]
         struct InventorySlot
         {
             public Item item;
@@ -160,10 +160,12 @@ namespace LSWTest.Inventory
             // slots size/index is depend on "inventorySize"
             // use itemID that generated in every Item Scriptable Object
             slots[0].item = Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43");
+            slots[0].number = 1;
             slots[1].item = Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1");
+            slots[1].number = 1;
 
         }
-        int FindSlot(Item item)
+        public int FindSlot(Item item)
         {
             int i = FindStack(item);
             if (i < 0)

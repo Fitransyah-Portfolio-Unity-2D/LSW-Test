@@ -6,12 +6,22 @@ namespace LSWTest.Inventory
 {
     public class ItemDropper : MonoBehaviour
     {
-        // this will be usefull for saving system
+        
         List<Pickup> droppedItems = new List<Pickup>();
+
+        /// <summary>
+        /// Use this in Inventory Drop Target to drop item one by one from Inventory UI
+        /// </summary>
+        /// <param name="item"></param>
         public void DropItem(Item item)
         {
             SpawnPickup(item, GetDropLocation(),1);
         }
+        /// <summary>
+        /// Use this in Inventory Drop Target to drop stackable items at once from Inventory UI
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="number"></param>
         public void DropItem(Item item, int number)
         {
             SpawnPickup(item, GetDropLocation(), number);
