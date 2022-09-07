@@ -21,17 +21,17 @@ namespace LSWTest.Shop
             if (activeShop != null)
             {
                 activeShopChange();
+                GetComponent<PlayerMovement>().SetGameMode(GameMode.Shop);
             }
         }
         public Shop GetActiveShop()
         {
             return activeShop;
         }
-        public void CloseShop()
+        public void RemoveActiveShop()
         {
             activeShop = null;
             GetComponent<PlayerMovement>().SetGameMode(GameMode.Play);
-
             activeShopChange();
         }
 

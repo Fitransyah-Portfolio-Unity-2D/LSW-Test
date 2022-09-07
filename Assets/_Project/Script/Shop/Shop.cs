@@ -11,6 +11,7 @@ namespace LSWTest.Shop
 {
     public class Shop : Shopable
     {
+        [SerializeField] string shopName;
         public class ShopItem
         {
             Item item;
@@ -29,12 +30,15 @@ namespace LSWTest.Shop
         public bool CanTransact() { return true; }
         public void ConfirmTransaction() { }
         public float TransactionTotal() { return 0; }
+        public string GetShopName()
+        {
+            return shopName;
+        }
         public void AddToTransaction(Item item, int quantity) { }
 
         public override void HandleCollisionTriggered(GameObject player)
         {
             player.GetComponent<Shopper>().SetActiveShop(this);
-            player.GetComponent<PlayerMovement>().SetGameMode(GameMode.Shop);
         }
     }
 }

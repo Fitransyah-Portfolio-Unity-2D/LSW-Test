@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace LSWTest.Shop
 {
     public class ShopUI : MonoBehaviour
     {
+        [SerializeField] TMP_Text shopName;
+        
         Shopper shopper = null;
         Shop currentShop = null;
         private void Start()
@@ -23,6 +26,14 @@ namespace LSWTest.Shop
         {
             currentShop = shopper.GetActiveShop();
             gameObject.SetActive(currentShop != null);
+
+            if (currentShop == null) return ;
+
+            shopName.text = currentShop.GetShopName();
+        }
+        public void ShopClosed()
+        {
+            shopper.RemoveActiveShop();
         }
     }
 }

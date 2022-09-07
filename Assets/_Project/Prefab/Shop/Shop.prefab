@@ -224,7 +224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9052586029753794796, guid: 8afd6cb0df71a4646ae4de2c231bde3b, type: 3}
       propertyPath: m_Name
-      value: InteractionZone
+      value: Shop Enter
       objectReference: {fileID: 0}
     - target: {fileID: 9052586029753794799, guid: 8afd6cb0df71a4646ae4de2c231bde3b, type: 3}
       propertyPath: m_RootOrder
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f79244e667d2c4fbbed3fc95e2d7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopName: 
 --- !u!4 &4401571983582883562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9052586029753794799, guid: 8afd6cb0df71a4646ae4de2c231bde3b, type: 3}
