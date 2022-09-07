@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,19 +8,32 @@ namespace LSWTest.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
-        [SerializeField] KeyCode toggleKey = KeyCode.Escape;
-        [SerializeField] GameObject uiContainer = null;
+        [SerializeField] KeyCode toggleInventoryKey = KeyCode.I;
+        [SerializeField] GameObject inventoryUIContainer = null;
+        [SerializeField] KeyCode toggleShopKey = KeyCode.O;
+        [SerializeField] GameObject shopUIContainer = null;
+
+        public delegate void OnShopActivity(GameObject shopUIContainer);
+        public OnShopActivity onShopActivity;
 
         void Start()
         {
-            uiContainer.SetActive(false);
+            inventoryUIContainer.SetActive(false);
+            shopUIContainer.SetActive(false);
+            
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(toggleKey))
+            if (Input.GetKeyDown(toggleInventoryKey))
             {
-                uiContainer.SetActive(!uiContainer.activeSelf);
+                inventoryUIContainer.SetActive(!inventoryUIContainer.activeSelf);
+            }
+
+            if (Input.GetKeyDown(toggleShopKey))
+            {
+                shopUIContainer.SetActive(!shopUIContainer.activeSelf);
+                onShopActivity(shopUIContainer);
             }
         }
     }
