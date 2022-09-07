@@ -1,12 +1,15 @@
+using LSWTest.Core;
 using LSWTest.Inventory;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace LSWTest.Shop
 {
-    public class Shop : MonoBehaviour
+    public class Shop : Shopable
     {
         public class ShopItem
         {
@@ -27,5 +30,11 @@ namespace LSWTest.Shop
         public void ConfirmTransaction() { }
         public float TransactionTotal() { return 0; }
         public void AddToTransaction(Item item, int quantity) { }
+
+        public override void HandleCollisionTriggered(GameObject player)
+        {
+            player.GetComponent<Shopper>().SetActiveShop(this);
+            player.GetComponent<PlayerMovement>().SetGameMode(GameMode.Shop);
+        }
     }
 }

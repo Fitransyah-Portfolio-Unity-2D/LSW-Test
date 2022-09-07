@@ -35,18 +35,20 @@ namespace LSWTest.Core
             playerAnimator = GetComponent<Animator>();
 
             playerSprite = GetComponent<SpriteRenderer>();
-
-            showHideUi.onShopActivity += ChangeGameMode;
         }
 
         // Update is called once per frame
         void Update()
         {
+            // make sure RB never sleep for OnTriggerStay2D
+            playerRB.AddForce(Vector2.zero);
+
             Move();
             Animate();
 
             if (moveInput == Vector2.zero) return;
             lastFacingDirection = moveInput;
+
         }
 
         void OnMove(InputValue value)
@@ -63,18 +65,18 @@ namespace LSWTest.Core
             playerAnimator.SetFloat("AnimMoveX", lastFacingDirection.x);
             playerAnimator.SetFloat("AnimMoveY", lastFacingDirection.y);
         }
-
-        void ChangeGameMode(GameObject uiContainer)
+        public void SetGameMode(GameMode updatedGameMode)
         {
-            if (uiContainer.activeSelf)
+            gameMode = updatedGameMode;
+
+            switch (gameMode)
             {
-                gameMode = GameMode.Shop;
-                walkSpeed = 0;
-            }
-            else
-            {
-                gameMode = GameMode.Play;
-                walkSpeed = cachedWalkspeed;
+                case GameMode.Play:
+                    walkSpeed = cachedWalkspeed;
+                    break;
+                case GameMode.Shop:
+                    walkSpeed = 0;
+                    break;
             }
         }
     }
