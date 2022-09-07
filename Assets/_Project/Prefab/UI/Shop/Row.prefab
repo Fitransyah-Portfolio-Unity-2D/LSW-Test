@@ -7,6 +7,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1931900658181178365, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043250, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_text
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043250, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043250, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043250, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043261, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692437043261, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692737199372, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893692737199372, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693199597747, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_text
+      value: '- 10 +'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795801, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795801, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795806, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_text
+      value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795806, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795806, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795806, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_overflowMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693272795806, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693859776149, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_text
+      value: $100.000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693859776149, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092893693859776149, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2092893694527703008, guid: d4385d70c1d9a2342a3a61813e712be4, type: 3}
       propertyPath: m_Name
       value: Row
