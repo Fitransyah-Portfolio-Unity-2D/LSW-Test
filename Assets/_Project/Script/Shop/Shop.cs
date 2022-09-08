@@ -13,22 +13,26 @@ namespace LSWTest.Shop
     public class Shop : Interact
     {
         [SerializeField] string shopName;
+        [Range(0,100)]
+        [SerializeField] float sellingPercentage = 80f;
 
         // Stock config
-        [SerializeField]
-        StockItemConfig[] stockConfig;
+        [SerializeField] StockItemConfig[] stockConfig;
 
         [Serializable]
         class StockItemConfig
         {
             public Item item;
             public int initialStock;
+            [Range(0, 100)]
             public float buyingDiscountPercentage;
         }
 
         Dictionary<Item, int> transaction = new Dictionary<Item, int>();
         Dictionary<Item, int> stock = new Dictionary<Item, int>();  
         Shopper currentShopper = null;
+
+        bool isBuyingMode = true;
 
         public event Action onChange;
 
@@ -53,17 +57,38 @@ namespace LSWTest.Shop
         {
             foreach (StockItemConfig config in stockConfig)
             {
-                float price = config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+                float price = GetPrice(config);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
                 int currentStock = stock[config.item];
                 yield return new ShopItem(config.item, currentStock, price, quantityInTransaction);
             }
         }
+
+        private float GetPrice(StockItemConfig config)
+        {
+            if (isBuyingMode)
+            {
+                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+            }
+            return config.item.GetPrice() * (sellingPercentage / 100);
+        }
+
         public void SelectFilter(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
-        public void SelectMode(bool isBuying) { }
-        public bool IsBuyingMode() { return true; }
+        public void SelectMode(bool isBuying) 
+        {
+            isBuyingMode = isBuying;
+
+            if (onChange != null)
+            {
+                onChange();
+            }
+        }
+        public bool IsBuyingMode() 
+        { 
+            return isBuyingMode; 
+        }
         public bool CanTransact() { return true; }
         public void ConfirmTransaction() 
         { 

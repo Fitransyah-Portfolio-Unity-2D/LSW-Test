@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LSWTest.Shop
 {
@@ -13,6 +14,8 @@ namespace LSWTest.Shop
         [SerializeField] Transform listRoot;
         [SerializeField] RowUI rowPrefab;
         [SerializeField] TMP_Text totalField;
+        [SerializeField] Button confirmButton;
+        [SerializeField] Button switchButton;
         
         Shopper shopper = null;
         Shop currentShop = null;
@@ -23,6 +26,7 @@ namespace LSWTest.Shop
             if (shopper == null) return;
 
             shopper.activeShopChange += ShopChanged;
+            switchButton.onClick.AddListener(SwitchMode);
 
             ShopChanged();
         }
@@ -71,6 +75,26 @@ namespace LSWTest.Shop
             }
 
             totalField.text = $"Total: ${currentShop.TransactionTotal():N2}";
+
+            TMP_Text switchText = switchButton.GetComponentInChildren<TMP_Text>();
+            TMP_Text confirmText = confirmButton.GetComponentInChildren<TMP_Text>();
+            if (currentShop.IsBuyingMode())
+            {
+                switchText.text = "Switch to Selling";
+                confirmText.text = "Buy";
+            }
+            else
+            {
+                switchText.text = "Switch to Buying";
+                confirmText.text = "Sell";
+            }
+        }
+
+        // FF
+
+        public void SwitchMode()
+        {
+            currentShop.SelectMode(!currentShop.IsBuyingMode());
         }
 
     }
