@@ -12,14 +12,28 @@ namespace LSWTest.Shop
     public class Shop : Interact
     {
         [SerializeField] string shopName;
+
+        // Stock config
+        [SerializeField]
+        StockItemConfig[] stockConfig;
+
+        [Serializable]
+        class StockItemConfig
+        {
+            public Item item;
+            public int initialStock;
+            public float buyingDiscountPercentage;
+        }
         
         public event Action onChange;
 
         public IEnumerable<ShopItem> GetFilteredItems() 
         {
-            yield return new ShopItem(Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1"), 10, 25.976780f, 0);
-            yield return new ShopItem(Item.GetFromID("4f89c0f2-762b-454e-8dc2-d2ae2684144f"), 10, 19.4555640f, 0);
-            yield return new ShopItem(Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43"), 10, 34.55555f, 0);
+            foreach(StockItemConfig config in stockConfig)
+            {
+                float price = config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+                yield return new ShopItem(config.item, config.initialStock, price, 0);
+            }
         }
         public void SelectFilter(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
@@ -32,7 +46,11 @@ namespace LSWTest.Shop
         {
             return shopName;
         }
-        public void AddToTransaction(Item item, int quantity) { }
+        public void AddToTransaction(Item item, int quantity) 
+        {
+            Debug.Log($"Happening on {GetShopName()}");
+            Debug.Log($" {item.GetDisplayName()} X {quantity} added to transaction!");
+        }
 
         public override void HandleCollisionTriggered(GameObject player)
         {

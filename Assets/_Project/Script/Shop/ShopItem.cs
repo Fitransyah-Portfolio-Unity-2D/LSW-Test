@@ -39,5 +39,10 @@ namespace LSWTest.Shop
         {
             return price;
         }
+
+        public Item GetInventoryItem()
+        {
+            return item;
+        }
     }
 }

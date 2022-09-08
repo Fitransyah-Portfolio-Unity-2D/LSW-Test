@@ -3652,7 +3652,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7788235, y: 1}
+    m_SensorSize: {x: 1.7833333, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9866,6 +9866,82 @@ PrefabInstance:
     - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
       propertyPath: shopName
       value: Discount Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: d31c37d114b403c4fac85d4657bc25bd, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 15476e1d49ea56448951f2403744e631, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[2].item
+      value: 
+      objectReference: {fileID: 11400000, guid: b8118fe586837a24f813026a40e44b33, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[3].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c7334c8164edc34b875e8b004e06518, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[4].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 62e99ff0a45bb0d4c9d4cb06ceacc0b7, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[5].item
+      value: 
+      objectReference: {fileID: 11400000, guid: eb883e222b23d0349a6629a5e1defe25, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[0].initialStock
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[1].initialStock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[2].initialStock
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[3].initialStock
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[4].initialStock
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[5].initialStock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[0].buyingDiscountPercentage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[1].buyingDiscountPercentage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[2].buyingDiscountPercentage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[3].buyingDiscountPercentage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[4].buyingDiscountPercentage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[5].buyingDiscountPercentage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4401571983993546374, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
       propertyPath: m_text
@@ -21693,7 +21769,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7788235, y: 1}
+    m_SensorSize: {x: 1.7833333, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24362,6 +24438,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1099.547
       objectReference: {fileID: 0}
+    - target: {fileID: 552009851395545460, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -393.55637
+      objectReference: {fileID: 0}
     - target: {fileID: 552009851548862875, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24402,6 +24482,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -25.845947
       objectReference: {fileID: 0}
+    - target: {fileID: 552009851816973659, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -576.5564
+      objectReference: {fileID: 0}
     - target: {fileID: 552009851935344984, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24437,6 +24521,14 @@ PrefabInstance:
     - target: {fileID: 552009852311777633, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552009852418750845, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1232.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 552009852418750845, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 517
       objectReference: {fileID: 0}
     - target: {fileID: 552009852418750846, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_Horizontal
@@ -24553,6 +24645,10 @@ PrefabInstance:
     - target: {fileID: 552009852932075506, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552009853320628891, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
+      propertyPath: m_Name
+      value: Exit Button
       objectReference: {fileID: 0}
     - target: {fileID: 552009853320628893, guid: add8e8443c35df14cbff7b465238ed21, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -24997,6 +25093,58 @@ PrefabInstance:
     - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
       propertyPath: shopName
       value: Normal Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: d31c37d114b403c4fac85d4657bc25bd, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 15476e1d49ea56448951f2403744e631, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[2].item
+      value: 
+      objectReference: {fileID: 11400000, guid: b8118fe586837a24f813026a40e44b33, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[3].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c7334c8164edc34b875e8b004e06518, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[4].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 62e99ff0a45bb0d4c9d4cb06ceacc0b7, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[5].item
+      value: 
+      objectReference: {fileID: 11400000, guid: eb883e222b23d0349a6629a5e1defe25, type: 2}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[0].initialStock
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[1].initialStock
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[2].initialStock
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[3].initialStock
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[4].initialStock
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401571983582883558, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
+      propertyPath: stockConfig.Array.data[5].initialStock
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4401571983993546374, guid: 8461040e8caf74b4baf17f608d89e894, type: 3}
       propertyPath: m_text

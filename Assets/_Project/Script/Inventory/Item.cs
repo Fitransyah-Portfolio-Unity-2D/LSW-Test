@@ -18,6 +18,8 @@ namespace LSWTest.Inventory
         [SerializeField] Pickup pickup = null;
         [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
         [SerializeField] bool stackable = false;
+        [Tooltip("Initial price of this type of item")]
+        [SerializeField] float price = 0;
 
         static Dictionary<string, Item> itemLookupCache;
 
@@ -83,6 +85,11 @@ namespace LSWTest.Inventory
         public bool IsStackable()
         {
             return stackable;
+        }
+
+        public float GetPrice()
+        {
+            return price;
         }
 
         #region ISerializationCallbackReceiver
