@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Item = LSWTest.Inventory.Item;
@@ -60,19 +61,11 @@ namespace LSWTest.Shop
                 float price = GetPrice(config);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
-                int currentStock = stock[config.item];
-                yield return new ShopItem(config.item, currentStock, price, quantityInTransaction);
+                int availability = GetAvailability(config.item);
+                yield return new ShopItem(config.item, availability, price, quantityInTransaction);
             }
         }
 
-        private float GetPrice(StockItemConfig config)
-        {
-            if (isBuyingMode)
-            {
-                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
-            }
-            return config.item.GetPrice() * (sellingPercentage / 100);
-        }
 
         public void SelectFilter(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
@@ -154,9 +147,10 @@ namespace LSWTest.Shop
             }
 
             // stock check
-            if (transaction[item] + quantity > stock[item])
+            int availability = GetAvailability(item);
+            if (transaction[item] + quantity > availability)
             {
-                transaction[item] = stock[item];
+                transaction[item] = availability;
             }
             else
             {
@@ -180,5 +174,41 @@ namespace LSWTest.Shop
         {
             player.GetComponent<Shopper>().SetActiveShop(this);
         }
+
+        private int GetAvailability(Item item)
+        {
+            if (isBuyingMode)
+            {
+                return stock[item];
+            }
+
+            return CountItemsInInventory(item);
+        }
+
+        private int CountItemsInInventory(Item item)
+        {
+            PlayerInventory inventory = currentShopper.GetComponent<PlayerInventory>();
+            if (inventory == null) return 0;
+
+            int total = 0;
+            for (int i = 0; i < inventory.GetSize(); i++)
+            {
+                if (inventory.GetItemInSlot(i) == item)
+                {
+                    total += inventory.GetNumberInSlot(i);
+                }
+            }
+            return total;
+        }
+
+        private float GetPrice(StockItemConfig config)
+        {
+            if (isBuyingMode)
+            {
+                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+            }
+            return config.item.GetPrice() * (sellingPercentage / 100);
+        }
+
     }
 }
