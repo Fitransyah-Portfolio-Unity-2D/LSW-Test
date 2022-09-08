@@ -31,6 +31,11 @@ namespace LSWTest.Shop
             shopper.RemoveActiveShop();
         }
 
+        public void ConfirmTransaction()
+        {
+            currentShop.ConfirmTransaction();
+        }
+
         void ShopChanged()
         {
             if (currentShop != null)

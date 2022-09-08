@@ -11,13 +11,13 @@ namespace LSWTest.Inventory
     public class Pickup : MonoBehaviour
     {
         [SerializeField] Item item;
-        [SerializeField] Inventory inventory;
+        [SerializeField] PlayerInventory inventory;
         [SerializeField] int number = 1;
 
         private void Awake()
         {
             var player = GameObject.FindWithTag("Player");
-            inventory = player.GetComponent<Inventory>();
+            inventory = player.GetComponent<PlayerInventory>();
         }
         /// <summary>
         /// This method have to be called after Prefab contains this script
@@ -48,8 +48,8 @@ namespace LSWTest.Inventory
         }
         /// <summary>
         /// Method to execute pick up mechanic that happening in the world
-        /// First will check player Inventory for slot, if there is slot than destroy its physical representation in the world
-        /// and store the Item data to player Inventory
+        /// First will check player PlayerInventory for slot, if there is slot than destroy its physical representation in the world
+        /// and store the Item data to player PlayerInventory
         /// </summary>
         public void PickupItem()
         {
@@ -63,7 +63,7 @@ namespace LSWTest.Inventory
         /// Checking player inventory for this item type exist or not
         /// and if its exist are that type of Item is stackable or not?
         /// </summary>
-        /// <returns> Return True based result on Inventory.HasSpaceFor method </returns>
+        /// <returns> Return True based result on PlayerInventory.HasSpaceFor method </returns>
         public bool CanBePickedUp()
         {
             return inventory.HasSpaceFor(item);

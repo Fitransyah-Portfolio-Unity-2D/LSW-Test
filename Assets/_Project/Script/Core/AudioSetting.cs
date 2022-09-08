@@ -13,7 +13,7 @@ public class AudioSetting : MonoBehaviour
     public AudioSource onePlay;
     public AudioSource backsound;
 
-    Inventory inventory;
+    PlayerInventory inventory;
 
     bool soundEffectToggle = true;
     private void Awake()
@@ -34,7 +34,7 @@ public class AudioSetting : MonoBehaviour
         ToggleBacksound();
         onePlay.clip = null;
 
-        inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
+        inventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
         inventory.OnInventoryUpdate += PlayItemTakenSound;   
     }
     

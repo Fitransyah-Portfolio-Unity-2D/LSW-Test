@@ -7,6 +7,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
+
 namespace LSWTest.Shop
 {
     public class Shop : Interact
@@ -25,9 +26,15 @@ namespace LSWTest.Shop
             public float buyingDiscountPercentage;
         }
 
-        Dictionary<Item, int> transaction = new Dictionary<Item, int>(); 
+        Dictionary<Item, int> transaction = new Dictionary<Item, int>();
+        Shopper currentShopper = null;
 
         public event Action onChange;
+
+        public void SetShopper(Shopper shopper)
+        {
+            currentShopper = shopper;
+        }
 
         public IEnumerable<ShopItem> GetFilteredItems() 
         {
@@ -44,7 +51,38 @@ namespace LSWTest.Shop
         public void SelectMode(bool isBuying) { }
         public bool IsBuyingMode() { return true; }
         public bool CanTransact() { return true; }
-        public void ConfirmTransaction() { }
+        public void ConfirmTransaction() 
+        { 
+            // 1. Get the shopper
+            PlayerInventory shopperInventory = currentShopper.GetComponent<PlayerInventory>();
+            if (shopperInventory == null) return;
+
+            // 2. transfer to or from inventory
+
+            // caching dictionary for iteration
+            var transactionSnapshot = new Dictionary<Item, int>(transaction);
+           
+            foreach (Item item in transactionSnapshot.Keys)
+            {
+                int quantity = transactionSnapshot[item];
+                
+                // handle stackable bug
+                for (int i = 0; i < quantity; i++)
+                {
+                    bool succes = shopperInventory.AddToFirstEmptySlot(item, 1);
+
+                    if (succes)
+                    {
+                        // 3. removal from transaction 
+                        AddToTransaction(item, -1);
+                    }
+                }
+                
+            }
+            
+            
+            // debit or credti funds
+        }
         public float TransactionTotal() { return 0; }
         public string GetShopName()
         {

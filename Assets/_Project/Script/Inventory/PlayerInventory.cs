@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace LSWTest.Inventory
 {
-    public class Inventory : MonoBehaviour
+    public class PlayerInventory : MonoBehaviour
     {
         [SerializeField] int inventorySize = 16;
         [SerializeField]
@@ -20,14 +20,14 @@ namespace LSWTest.Inventory
 
         public event Action OnInventoryUpdate;
         /// <summary>
-        /// Easy way to get the Player Inventory script
+        /// Easy way to get the Player PlayerInventory script
         /// </summary>
         /// <returns></returns>
-        public static Inventory GetPlayerInventory()
+        public static PlayerInventory GetPlayerInventory()
         {
-            // should player Inventory.cs
+            // should player PlayerInventory.cs
             var player = GameObject.FindWithTag("Player");
-            return player.GetComponent<Inventory>();
+            return player.GetComponent<PlayerInventory>();
         }
         /// <summary>
         /// To know how many player inventory size/limit
@@ -100,7 +100,7 @@ namespace LSWTest.Inventory
             return true;
         }
         /// <summary>
-        /// Search Inventory if any available space for this Item
+        /// Search PlayerInventory if any available space for this Item
         /// </summary>
         /// <param name="item"></param>
         /// <returns> Return True if space is available </returns>
@@ -134,10 +134,10 @@ namespace LSWTest.Inventory
             return true;
         }
         /// <summary>
-        /// Search Inventory if it has this Item type
+        /// Search PlayerInventory if it has this Item type
         /// </summary>
         /// <param name="item"></param>
-        /// <returns> Return True when Item is exist in Inventory </returns>
+        /// <returns> Return True when Item is exist in PlayerInventory </returns>
         public bool HasItem(Item item)
         {
             for(int i = 0; i < slots.Length; i++)

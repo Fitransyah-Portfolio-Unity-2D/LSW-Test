@@ -10,7 +10,7 @@ namespace LSWTest.Inventory
         List<Pickup> droppedItems = new List<Pickup>();
 
         /// <summary>
-        /// Use this in Inventory Drop Target to drop item one by one from Inventory UI
+        /// Use this in PlayerInventory Drop Target to drop item one by one from PlayerInventory UI
         /// </summary>
         /// <param name="item"></param>
         public void DropItem(Item item)
@@ -18,7 +18,7 @@ namespace LSWTest.Inventory
             SpawnPickup(item, GetDropLocation(),1);
         }
         /// <summary>
-        /// Use this in Inventory Drop Target to drop stackable items at once from Inventory UI
+        /// Use this in PlayerInventory Drop Target to drop stackable items at once from PlayerInventory UI
         /// </summary>
         /// <param name="item"></param>
         /// <param name="number"></param>

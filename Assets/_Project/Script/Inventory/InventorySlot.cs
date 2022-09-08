@@ -10,9 +10,9 @@ namespace LSWTest.Inventory
 
         int index;
         Item item;
-        Inventory inventory;
+        PlayerInventory inventory;
 
-        public void Setup(Inventory inventory, int index)
+        public void Setup(PlayerInventory inventory, int index)
         {
             this.inventory = inventory;
             this.index = index;

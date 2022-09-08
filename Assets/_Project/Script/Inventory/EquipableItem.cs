@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LSWTest.Inventory
 {
-    [CreateAssetMenu(menuName = "LSW Test/Inventory/EquipableItem")]
+    [CreateAssetMenu(menuName = "LSW Test/PlayerInventory/EquipableItem")]
     public class EquipableItem : Item
     {
         [Tooltip("Where this item allowed to equip")]

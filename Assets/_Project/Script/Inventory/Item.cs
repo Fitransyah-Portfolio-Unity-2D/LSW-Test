@@ -41,7 +41,7 @@ namespace LSWTest.Inventory
                 {
                     if (itemLookupCache.ContainsKey(item.itemID))
                     {
-                        Debug.LogError(string.Format("There is a duplicate itemID from LSWTest.Inventory.Item for objects : {0} and {1}", itemLookupCache[item.itemID], item));
+                        Debug.LogError(string.Format("There is a duplicate itemID from LSWTest.PlayerInventory.Item for objects : {0} and {1}", itemLookupCache[item.itemID], item));
                         continue;
                     }
 

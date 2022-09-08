@@ -14,9 +14,17 @@ namespace LSWTest.Shop
 
         public void SetActiveShop(Shop shop)
         {
+            if (activeShop != null)
+            {
+                activeShop.SetShopper(null);
+            }
+            
             activeShop = shop;
 
-            Debug.Log(shop.gameObject.name);
+            if (activeShop != null)
+            {
+                activeShop.SetShopper(this);
+            }
 
             if (activeShop != null)
             {

@@ -8,11 +8,11 @@ namespace LSWTest.Inventory
     {
         [SerializeField] InventorySlot inventorySlotPrefab;
 
-        Inventory playerInventory;
+        PlayerInventory playerInventory;
 
         private void Awake()
         {
-            playerInventory = Inventory.GetPlayerInventory();
+            playerInventory = PlayerInventory.GetPlayerInventory();
             playerInventory.OnInventoryUpdate += Redraw;
         }
         private void Start()
