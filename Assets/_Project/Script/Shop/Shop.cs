@@ -90,35 +90,21 @@ namespace LSWTest.Shop
             Purse shopperPurse = currentShopper.GetComponent<Purse>();
             if (shopperInventory == null || shopperPurse == null) return;
 
-            // 2. transfer to or from inventory
-
-           
+            // 2. transfer to or from inventory    
             foreach (ShopItem shopItem in GetAllItems())
             {
                 Item item = shopItem.GetInventoryItem();
                 int quantity = shopItem.GetQuantityInTransaction();
                 float price = shopItem.GetPrice();
 
-                // handle stackable bug
-                for (int i = 0; i < quantity; i++)
+                if (isBuyingMode)
                 {
-                    if (shopperPurse.GetBalance() < price) break;
-                    
-                    bool succes = shopperInventory.AddToFirstEmptySlot(item, 1);
-
-                    if (succes)
-                    {                        
-                        // 3. removal from transaction 
-                        AddToTransaction(item, -1);
-
-                        // stock deduction
-                        stock[item]--;
-
-                        // 4. debit or credit funds
-                        shopperPurse.UpdateBalance(-price);
-                    }
+                    BuyItem(shopperInventory, shopperPurse, item, quantity, price);
                 }
-                
+                else
+                {
+                    SellItem(shopperInventory, shopperPurse, item, quantity, price);
+                }
             }
 
             if (onChange != null)
@@ -126,6 +112,8 @@ namespace LSWTest.Shop
                 onChange();
             }
         }
+
+
         public float TransactionTotal() 
         {
             float total = 0;
@@ -175,6 +163,16 @@ namespace LSWTest.Shop
             player.GetComponent<Shopper>().SetActiveShop(this);
         }
 
+        private float GetPrice(StockItemConfig config)
+        {
+            if (isBuyingMode)
+            {
+                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+            }
+            return config.item.GetPrice() * (sellingPercentage / 100);
+        }
+
+
         private int GetAvailability(Item item)
         {
             if (isBuyingMode)
@@ -201,13 +199,50 @@ namespace LSWTest.Shop
             return total;
         }
 
-        private float GetPrice(StockItemConfig config)
+
+        private void BuyItem(PlayerInventory shopperInventory, Purse shopperPurse, Item item, int quantity, float price)
         {
-            if (isBuyingMode)
+            // handle stackable bug
+            for (int i = 0; i < quantity; i++)
             {
-                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+                if (shopperPurse.GetBalance() < price) return;
+
+                bool succes = shopperInventory.AddToFirstEmptySlot(item, 1);
+
+                if (succes)
+                {
+                    // 3. removal from transaction 
+                    AddToTransaction(item, -1);
+
+                    // stock deduction
+                    stock[item]--;
+
+                    // 4. debit or credit funds
+                    shopperPurse.UpdateBalance(-price);
+                }
             }
-            return config.item.GetPrice() * (sellingPercentage / 100);
+        }
+        private void SellItem(PlayerInventory shopperInventory, Purse shopperPurse, Item item, int quantity, float price)
+        {
+            int slot = FindFirstItemSlot(shopperInventory, item);
+            if (slot == -1) return;
+
+            AddToTransaction(item, -1);
+            shopperInventory.RemoveFromSlot(slot, 1);
+            stock[item]++;
+            shopperPurse.UpdateBalance(price);
+
+        }
+        private int FindFirstItemSlot(PlayerInventory shopperInventory, Item item)
+        {
+            for (int i = 0; i < shopperInventory.GetSize(); i++)
+            {
+                if (shopperInventory.GetItemInSlot(i) == item)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
     }
