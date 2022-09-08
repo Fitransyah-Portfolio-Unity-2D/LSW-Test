@@ -13,6 +13,7 @@ namespace LSWTest.Shop
         [SerializeField] TMP_Text nameField;
         [SerializeField] TMP_Text availabilityField;
         [SerializeField] TMP_Text priceField;
+        [SerializeField] TMP_Text quantityField;
 
         [SerializeField] Shop currentShop;
         [SerializeField] ShopItem item;
@@ -26,6 +27,7 @@ namespace LSWTest.Shop
             iconField.sprite = item.GetIcon();
             availabilityField.text = $"{item.GetAvailablity()}";
             priceField.text = $"${item.GetPrice():N2}";
+            quantityField.text = $"{item.GetQuantity()}";
         }
 
         public void Add()

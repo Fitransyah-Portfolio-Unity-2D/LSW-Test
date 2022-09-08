@@ -5,12 +5,13 @@ using UnityEngine;
 
 namespace LSWTest.Shop
 {
+    [Serializable]
     public class ShopItem
     {
-        Item item;
-        int availability;
-        float price;
-        int quantitiyInTransaction;
+        [SerializeField] Item item;
+        [SerializeField] int availability;
+        [SerializeField] float price;
+        [SerializeField] int quantitiyInTransaction;
 
         public ShopItem(Item item, int availability, float price, int quantityIntransaction)
         {
@@ -43,6 +44,11 @@ namespace LSWTest.Shop
         public Item GetInventoryItem()
         {
             return item;
+        }
+
+        public int GetQuantity()
+        {
+            return quantitiyInTransaction;
         }
     }
 }
