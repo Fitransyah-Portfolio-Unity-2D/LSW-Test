@@ -9,20 +9,18 @@ using Debug = UnityEngine.Debug;
 
 namespace LSWTest.Shop
 {
-    public class Shop : Shopable
+    public class Shop : Interact
     {
         [SerializeField] string shopName;
-        public class ShopItem
-        {
-            Item item;
-            int availability;
-            float price;
-            int quantitiyInTransaction;
-        }
-
+        
         public event Action onChange;
 
-        public IEnumerable<Item> GetFilteredItems() { return null; }
+        public IEnumerable<ShopItem> GetFilteredItems() 
+        {
+            yield return new ShopItem(Item.GetFromID("ceb7ef13-d4c4-4af0-8c8a-30fc8b65d6e1"), 10, 25.0f, 0);
+            yield return new ShopItem(Item.GetFromID("4f89c0f2-762b-454e-8dc2-d2ae2684144f"), 10, 25.0f, 0);
+            yield return new ShopItem(Item.GetFromID("0868566c-009f-487f-896c-aa50b8691d43"), 10, 25.0f, 0);
+        }
         public void SelectFilter(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
         public void SelectMode(bool isBuying) { }

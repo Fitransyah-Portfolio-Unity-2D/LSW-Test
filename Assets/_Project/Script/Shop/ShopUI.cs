@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace LSWTest.Shop
@@ -8,6 +10,8 @@ namespace LSWTest.Shop
     public class ShopUI : MonoBehaviour
     {
         [SerializeField] TMP_Text shopName;
+        [SerializeField] Transform listRoot;
+        [SerializeField] RowUI rowPrefab;
         
         Shopper shopper = null;
         Shop currentShop = null;
@@ -30,7 +34,25 @@ namespace LSWTest.Shop
             if (currentShop == null) return ;
 
             shopName.text = currentShop.GetShopName();
+
+            RefreshUI();
         }
+
+        private void RefreshUI()
+        {
+            foreach(Transform child in listRoot)
+            {
+                Destroy(child.gameObject);
+            }
+
+            foreach(ShopItem item in currentShop.GetFilteredItems())
+            {
+                RowUI row = Instantiate<RowUI>(rowPrefab, listRoot);
+                row.Setup(item);
+
+            }
+        }
+
         public void ShopClosed()
         {
             shopper.RemoveActiveShop();

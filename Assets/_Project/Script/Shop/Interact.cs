@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LSWTest.Shop
 {
-    public abstract class Shopable : MonoBehaviour
+    public abstract class Interact : MonoBehaviour
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
