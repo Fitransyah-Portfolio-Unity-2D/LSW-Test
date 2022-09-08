@@ -9,24 +9,17 @@ namespace LSWTest.Shop
 {
     public class RowUI : MonoBehaviour
     {
-        [SerializeField] Image icon;
+        [SerializeField] Image iconField;
         [SerializeField] TMP_Text nameField;
-        [SerializeField] TMP_Text availability;
-        [SerializeField] TMP_Text price;
-        [SerializeField] TMP_Text quantityInTransaction;
+        [SerializeField] TMP_Text availabilityField;
+        [SerializeField] TMP_Text priceField;
 
         public void Setup(ShopItem item)
         {
             nameField.text = item.GetName();
-            icon.sprite = item.GetIcon();
-            availability.text = item.GetAvailablity();
-            price.text = item.GetPrice();
-            quantityInTransaction.text = item.GetQuantityInTransaction();
-        }
-
-        private string GetQuantityInTransaction()
-        {
-            throw new NotImplementedException();
+            iconField.sprite = item.GetIcon();
+            availabilityField.text = $"{item.GetAvailablity()}";
+            priceField.text = $"${item.GetPrice():N2}";
         }
     }
 }

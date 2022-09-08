@@ -25,9 +25,9 @@ namespace LSWTest.Shop
             return item.GetDisplayName();
         }
 
-        public string GetAvailablity()
+        public int GetAvailablity()
         {
-            return availability.ToString();
+            return availability;
         }
 
         public Sprite GetIcon()
@@ -35,14 +35,9 @@ namespace LSWTest.Shop
             return item.GetIcon();
         }
 
-        public string GetPrice()
+        public float GetPrice()
         {
-            return price.ToString();
-        }
-
-        internal string GetQuantityInTransaction()
-        {
-            return quantitiyInTransaction.ToString();
+            return price;
         }
     }
 }
