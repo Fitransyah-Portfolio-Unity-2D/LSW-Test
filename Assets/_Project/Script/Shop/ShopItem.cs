@@ -46,7 +46,7 @@ namespace LSWTest.Shop
             return item;
         }
 
-        public int GetQuantity()
+        public int GetQuantityInTransaction()
         {
             return quantitiyInTransaction;
         }

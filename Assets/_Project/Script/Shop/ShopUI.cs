@@ -12,6 +12,7 @@ namespace LSWTest.Shop
         [SerializeField] TMP_Text shopName;
         [SerializeField] Transform listRoot;
         [SerializeField] RowUI rowPrefab;
+        [SerializeField] TMP_Text totalField;
         
         Shopper shopper = null;
         Shop currentShop = null;
@@ -68,6 +69,8 @@ namespace LSWTest.Shop
                 row.Setup(currentShop, item);
 
             }
+
+            totalField.text = $"Total: {currentShop.TransactionTotal():N2}";
         }
 
     }
