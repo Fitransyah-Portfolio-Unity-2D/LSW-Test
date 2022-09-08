@@ -54,7 +54,14 @@ namespace LSWTest.Shop
 
         public IEnumerable<ShopItem> GetFilteredItems() 
         {
-            return GetAllItems();
+            foreach(ShopItem shopItem in GetAllItems())
+            {
+                Item item = shopItem.GetInventoryItem();
+                if (item.GetCategory() == filter || filter == ItemCategory.None)
+                {
+                    yield return shopItem;
+                }
+            }
         }
         public IEnumerable<ShopItem> GetAllItems()
         {

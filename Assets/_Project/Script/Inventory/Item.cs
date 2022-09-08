@@ -1,3 +1,4 @@
+using LSWTest.Shop;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace LSWTest.Inventory
         [SerializeField] bool stackable = false;
         [Tooltip("Initial price of this type of item")]
         [SerializeField] float price = 0;
+        [Tooltip("Set item category for filter function in shop UI")]
+        [SerializeField] ItemCategory category = ItemCategory.None;
 
         static Dictionary<string, Item> itemLookupCache;
 
@@ -90,6 +93,11 @@ namespace LSWTest.Inventory
         public float GetPrice()
         {
             return price;
+        }
+
+        public ItemCategory GetCategory()
+        {
+            return category;
         }
 
         #region ISerializationCallbackReceiver

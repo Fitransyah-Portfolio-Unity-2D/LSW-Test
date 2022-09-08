@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -93,14 +89,17 @@ namespace LSWTest.Shop
                 switchText.text = "Switch to Buying";
                 confirmText.text = "Sell";
             }
-        }
 
-        // FF
+            foreach (FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.RefreshUI();
+            }
+
+        }
 
         public void SwitchMode()
         {
             currentShop.SelectMode(!currentShop.IsBuyingMode());
         }
-
     }
 }

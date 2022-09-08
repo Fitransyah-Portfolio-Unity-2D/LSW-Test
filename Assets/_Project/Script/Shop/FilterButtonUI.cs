@@ -12,16 +12,26 @@ namespace LSWTest.Shop
 
         Button button;
         Shop currentShop;
-        void Start()
+        void Awake()
         {
             button = GetComponent<Button>();
 
             button.onClick.AddListener(SelectFilter);
         }
 
+        void Start()
+        {
+            
+        }
+
         public void SetShop(Shop currentShop)
         {
             this.currentShop = currentShop;
+        }
+
+        public void RefreshUI()
+        {
+            button.interactable = currentShop.GetFilter() != category;
         }
 
         private void SelectFilter()
