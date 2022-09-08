@@ -59,33 +59,39 @@ namespace LSWTest.Shop
         { 
             // 1. Get the shopper
             PlayerInventory shopperInventory = currentShopper.GetComponent<PlayerInventory>();
-            if (shopperInventory == null) return;
+            Purse shopperPurse = currentShopper.GetComponent<Purse>();
+            if (shopperInventory == null || shopperPurse == null) return;
 
             // 2. transfer to or from inventory
 
-            // caching dictionary for iteration
-            var transactionSnapshot = new Dictionary<Item, int>(transaction);
            
-            foreach (Item item in transactionSnapshot.Keys)
+            foreach (ShopItem shopItem in GetAllItems())
             {
-                int quantity = transactionSnapshot[item];
-                
+                Item item = shopItem.GetInventoryItem();
+                int quantity = shopItem.GetQuantityInTransaction();
+                float price = shopItem.GetPrice();
+
                 // handle stackable bug
                 for (int i = 0; i < quantity; i++)
                 {
+                    if (shopperPurse.GetBalance() < price) break;
+                    
                     bool succes = shopperInventory.AddToFirstEmptySlot(item, 1);
 
                     if (succes)
                     {
                         // 3. removal from transaction 
                         AddToTransaction(item, -1);
+
+                        // 4. debit or credit funds
+                        shopperPurse.UpdateBalance(-price);
                     }
                 }
                 
             }
             
             
-            // debit or credti funds
+            // debit or credit funds
         }
         public float TransactionTotal() 
         {

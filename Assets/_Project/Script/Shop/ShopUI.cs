@@ -70,7 +70,7 @@ namespace LSWTest.Shop
 
             }
 
-            totalField.text = $"Total: {currentShop.TransactionTotal():N2}";
+            totalField.text = $"Total: ${currentShop.TransactionTotal():N2}";
         }
 
     }

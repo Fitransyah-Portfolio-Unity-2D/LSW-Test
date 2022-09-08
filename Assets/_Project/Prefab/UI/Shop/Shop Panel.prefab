@@ -1525,6 +1525,7 @@ MonoBehaviour:
   shopName: {fileID: 1105687082307738740}
   listRoot: {fileID: 552009852311777633}
   rowPrefab: {fileID: 7910120172465085298, guid: 1626d438a97891340bc6775da1e263f4, type: 3}
+  totalField: {fileID: 552009853198944896}
 --- !u!1 &552009852822448010
 GameObject:
   m_ObjectHideFlags: 0
