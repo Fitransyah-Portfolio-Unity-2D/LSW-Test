@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
-
+using Item = LSWTest.Inventory.Item;
 
 namespace LSWTest.Shop
 {
@@ -27,9 +27,18 @@ namespace LSWTest.Shop
         }
 
         Dictionary<Item, int> transaction = new Dictionary<Item, int>();
+        Dictionary<Item, int> stock = new Dictionary<Item, int>();  
         Shopper currentShopper = null;
 
         public event Action onChange;
+
+        private void Awake()
+        {
+            foreach(StockItemConfig config in stockConfig)
+            {
+                stock[config.item] = config.initialStock;
+            }
+        }
 
         public void SetShopper(Shopper shopper)
         {
@@ -47,7 +56,8 @@ namespace LSWTest.Shop
                 float price = config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
-                yield return new ShopItem(config.item, config.initialStock, price, quantityInTransaction);
+                int currentStock = stock[config.item];
+                yield return new ShopItem(config.item, currentStock, price, quantityInTransaction);
             }
         }
         public void SelectFilter(ItemCategory category) { }
@@ -79,9 +89,12 @@ namespace LSWTest.Shop
                     bool succes = shopperInventory.AddToFirstEmptySlot(item, 1);
 
                     if (succes)
-                    {
+                    {                        
                         // 3. removal from transaction 
                         AddToTransaction(item, -1);
+
+                        // stock deduction
+                        stock[item]--;
 
                         // 4. debit or credit funds
                         shopperPurse.UpdateBalance(-price);
@@ -89,9 +102,11 @@ namespace LSWTest.Shop
                 }
                 
             }
-            
-            
-            // debit or credit funds
+
+            if (onChange != null)
+            {
+                onChange();
+            }
         }
         public float TransactionTotal() 
         {
@@ -113,7 +128,16 @@ namespace LSWTest.Shop
                 transaction[item] = 0;
             }
 
-            transaction[item] += quantity;
+            // stock check
+            if (transaction[item] + quantity > stock[item])
+            {
+                transaction[item] = stock[item];
+            }
+            else
+            {
+                transaction[item] += quantity;
+            }
+            
 
             // handle remove quantity button if its zero
             if (transaction[item] <= 0)
@@ -123,7 +147,7 @@ namespace LSWTest.Shop
 
             if (onChange != null)
             {
-                onChange(); //
+                onChange();
             }
         }
 
