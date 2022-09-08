@@ -51,6 +51,11 @@ namespace LSWTest.Shop
             currentShop = shopper.GetActiveShop();
             gameObject.SetActive(currentShop != null);
 
+            foreach(FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.SetShop(currentShop);
+            }
+
             if (currentShop == null) return;
 
             shopName.text = currentShop.GetShopName();
